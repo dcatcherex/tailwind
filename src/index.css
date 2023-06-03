@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn {
+        @apply
+        bg-purple
+        hover:bg-gray-700
+        text-white
+        py-2
+        px-4
+        m-0.5
+        text-sm
+        rounded-md
+    }
+
+    .font-title {
+        font-family: 'kanit';
+    }
+
+}
