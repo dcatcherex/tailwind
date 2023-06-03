@@ -1,5 +1,5 @@
 
-
+import teacherpic from '../../assets/images/teacher.svg';
 
 const GenerateContent = () => {
   return (
@@ -14,7 +14,7 @@ const GenerateContent = () => {
         <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-8 sm:mt-12">
           <img
             className="max-w-[300px] sm:max-w-[500px]"
-            src="../src/assets/images/teacher.svg"
+            src={teacherpic}
           />
           <h1 className="sm:text-6xl text-4xl max-w-[708px] font-semibold text-purple">
             สร้างเนื้อหาทางการศึกษาด้วย AI

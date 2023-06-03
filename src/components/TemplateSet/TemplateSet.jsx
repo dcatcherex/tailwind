@@ -1,7 +1,7 @@
 const TemplateSet = () => {
   return (
     <div>
-        <main className="bg-violet-100 grid grid-cols-2 gap-4 pt-4 mt-4 px-4">
+        <main className="bg-violet-500 grid grid-cols-2 gap-4 pt-4 mt-4 px-4">
           <div className=" flex flex-row  items-center justify-center gap-x-2 px-2 py-1  bg-white rounded-md shadow-md hover:ring-2 hover:cursor-pointer hover:ring-violet-500 active:bg-violet-100">
             <img className="w-6 h-6" src="../src/assets/images/exam.svg" />
             <div>
