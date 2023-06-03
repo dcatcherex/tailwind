@@ -12,7 +12,7 @@ const App = () => {
     <>
 
     <div className="bg-white py-4 px-4">
-      {/* <ExamList /> */}
+      <ExamList />
     </div>
     <TemplateSet />
     <GenerateContent />

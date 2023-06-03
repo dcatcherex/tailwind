@@ -1,9 +1,14 @@
+import view from '../../assets/images/view.svg'
+import link from '../../assets/images/link.svg'
+import exam from '../../assets/images/exam.svg'
+import quiz from '../../assets/images/quiz.png'
+
 const TemplateSet = () => {
   return (
     <div>
         <main className="bg-violet-800 grid grid-cols-2 gap-4 pt-4 mt-4 px-4">
           <div className=" flex flex-row  items-center justify-center gap-x-2 px-2 py-1  bg-white rounded-md shadow-md hover:ring-2 hover:cursor-pointer hover:ring-violet-500 active:bg-violet-100">
-            <img className="w-6 h-6" src="../src/assets/images/exam.svg" />
+            <img className="w-6 h-6" src={exam} />
             <div>
               <h2 className="text-base font-semibold text-purple">
                 Instagram Caption
@@ -25,12 +30,12 @@ const TemplateSet = () => {
             </div>
             <div className="flex flex-row justify-between gap-x-2 mt-3">
               <div className="flex gap-x-2 items-center">
-                <img className="w-3 h-3" src="../src/assets/images/view.svg" />
+                <img className="w-3 h-3" src={view} />
                 <p className="text-xs font-light text-gray-400">129</p>
               </div>
               <div className="flex gap-x-2 items-center">
                 <buttn className="hover:bg-slate-500">
-                  <img className="w-3 h-3" src="../src/assets/images/link.svg" />
+                  <img className="w-3 h-3" src={link} />
                 </buttn>
               </div>
             </div>
@@ -46,12 +51,12 @@ const TemplateSet = () => {
             </div>
             <div className="flex flex-row justify-between gap-x-2 mt-3">
               <div className="flex gap-x-2 items-center">
-                <img className="w-3 h-3" src="../src/assets/images/view.svg" />
+                <img className="w-3 h-3" src={view} />
                 <p className="text-xs font-light text-gray-400">129</p>
               </div>
               <div className="flex gap-x-2 items-center">
                 <buttn className="hover:bg-slate-500">
-                  <img className="w-3 h-3" src="../src/assets/images/link.svg" />
+                  <img className="w-3 h-3" src={link} />
                 </buttn>
               </div>
             </div>
@@ -63,7 +68,7 @@ const TemplateSet = () => {
         <div className="bg-violet-100 pt-4">
             
             <div className=" flex bg-white w-[100%-100px] h-[100px] mx-4 mt-2 rounded-md border-2 shadow-sm">
-                <img className="w-[100px] h-[100px] rounded-l-md border-r-2" src="../src/assets/images/quiz.png" />
+                <img className="w-[100px] h-[100px] rounded-l-md border-r-2" src={quiz} />
 
                 <div className="pt-2 px-2">
                   <h2 className="text-base font-medium">Quiz</h2>

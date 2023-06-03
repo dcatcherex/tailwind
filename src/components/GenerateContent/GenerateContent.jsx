@@ -1,5 +1,11 @@
 
 import teacherpic from '../../assets/images/teacher.svg';
+import logo from '../../assets/images/logo.png';
+import circle1 from '../../assets/images/circle1.png';
+import circle2 from '../../assets/images/circle2.png';
+import apps from '../../assets/images/apps.svg';
+import students from '../../assets/images/students.svg';
+import examwhite from '../../assets/images/examwhite.svg';
 
 const GenerateContent = () => {
   return (
@@ -7,28 +13,28 @@ const GenerateContent = () => {
       <div className="bg-fixed  bg-violet-100 flex max-w-5xl mx-auto flex-col items-center justify-center ">
         <header className="bg-white flex justify-between items-center w-full border-b-2 pb-3 py-2 sm:px-4 px-4">
           <h1 className="sm:text-4xl text-2xl max-w-[708px] font-bold text-slate-800">
-            <img src="../src/assets/images/logo.png" />
+            <img src={logo} />
           </h1>
-          <h1>dfsdfs</h1>
+          <h1>ทดสอบ</h1>
         </header>
         <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-8 sm:mt-12">
           <img
-            className="max-w-[300px] sm:max-w-[500px]"
+            className="hidden sm:visible max-w-[300px] sm:max-w-[500px]"
             src={teacherpic}
           />
           <h1 className="sm:text-6xl text-4xl max-w-[708px] font-semibold text-purple">
             สร้างเนื้อหาทางการศึกษาด้วย AI
           </h1>
-          <p className="text-slate-500 mt-5 font-light">
+          <p className="text-slate-500 mt-5 font-light ">
             สร้างเนื้อหาต่าง ๆ ไปแล้ว 0 ครั้ง
           </p>
           <div className="flex flex-1 w-full flex-row mt-10 space-x-3">
             <img
               alt="1 icon"
-              src="../src/assets/images/circle1.png"
+              src={circle1}
               className="w-6 h-6"
             />
-            <p className=" font-medium text-left tracking-wide">
+            <p className=" text-lg font-medium text-left tracking-wide">
               ใส่เนื้อหาที่ต้องการลงไป{" "}
               <span className="text-slate-500 font-normal">
                 (หรืออัพโหลดไฟล์เนื้อหาที่ต้องการ)
@@ -76,7 +82,7 @@ const GenerateContent = () => {
           <div className="flex flex-1 w-full flex-row mt-12 space-x-3">
             <img
               alt="2 icon"
-              src="../src/assets/images/circle2.png"
+              src={circle2}
               className="w-6 h-6"
             />
             <p className=" font-medium text-left tracking-wide">
@@ -108,10 +114,10 @@ const GenerateContent = () => {
             <option value="90" label="90"></option>
             <option value="100" label="100"></option>
           </datalist>
-          <button className=" w-full justify-center inline-flex gap-x-1.5 items-center px-4 py-2 bg-dimviolet hover:bg-violet-300 rounded-md text-white font-light tracking-wide mt-8">
+          <button className=" text-lg w-full justify-center inline-flex gap-x-1.5 items-center px-4 py-4 bg-dimviolet hover:bg-violet-300 rounded-md text-white font-light tracking-wide mt-8">
             <img
               className="w-5 h-5 stroke-white"
-              src="../src/assets/images/examwhite.svg"
+              src={examwhite}
             />
             สร้างข้อสอบ
           </button>
@@ -136,21 +142,21 @@ const GenerateContent = () => {
         </footer>
         <div className="fixed w-full bottom-0 box-border flex flex-1 flex-row items-center justify-between border-t-4 border-violet-200 divide-x divide-violet-200">
           <a
-            className="inline-flex items-center justify-center gap-x-2 text-center px-3 py-2 bg-purple hover:bg-slate-500 flex-1 text-white font-light"
+            className="inline-flex items-center justify-center gap-x-2 text-center px-3 py-4 bg-purple hover:bg-slate-500 flex-1 text-white font-light"
             href=""
-          ><img className="w-4 h-4" src="../src/assets/images/apps.svg"/>
+          ><img className="w-4 h-4" src={apps}/>
             รวมสื่อ
           </a>
           <a
-            className="inline-flex items-center justify-center gap-x-2 text-center px-3 py-2 bg-purple hover:bg-slate-500 flex-1 text-white font-light "
+            className="inline-flex items-center justify-center gap-x-2 text-center px-3 py-4 bg-purple hover:bg-slate-500 flex-1 text-white font-light "
             href=""
-          ><img className="w-5 h-5" src="../src/assets/images/examwhite.svg"/>
+          ><img className="w-5 h-5" src={examwhite}/>
             สร้าง
           </a>
           <a
-            className="inline-flex items-center justify-center gap-x-2 text-center px-3 py-2 bg-purple hover:bg-slate-500 flex-1 text-white font-light"
+            className="inline-flex items-center justify-center gap-x-2 text-center px-3 py-4 bg-purple hover:bg-slate-500 flex-1 text-white font-light"
             href=""
-          ><img className="w-5 h-5" src="../src/assets/images/students.svg"/>
+          ><img className="w-5 h-5" src={students}/>
             จัดสอบ
           </a>
         </div>
