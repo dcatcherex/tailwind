@@ -2,6 +2,8 @@ import teacherpic from "../../assets/images/teacher.svg";
 import logo from "../../assets/images/logo.png";
 import circle1 from "../../assets/images/circle1.png";
 import circle2 from "../../assets/images/circle2.png";
+import circle3 from "../../assets/images/circle3.png";
+
 import apps from "../../assets/images/apps.svg";
 import students from "../../assets/images/icons/students.svg";
 import bot from "../../assets/images/icons/bot.svg";
@@ -37,10 +39,10 @@ const GenerateContent = () => {
             className="hidden sm:visible max-w-[300px] sm:max-w-[500px]"
             src={teacherpic}
           />
-          <h1 className="text-center sm:text-6xl text-4xl max-w-[708px] font-semibold text-purple">
-            สร้างเนื้อหาทางการศึกษาด้วย AI
+          <h1 className="text-center sm:text-6xl text-4xl max-w-[708px] font-medium text-purple">
+            สร้างแบบทดสอบแบบเลือกตอบ
           </h1>
-          <p className="text-sm text-slate-500 mt-5 font-light ">
+          <p className="text-sm text-slate-500 mt-2 font-light ">
             สร้างเนื้อหาต่าง ๆ ไปแล้ว 0 ครั้ง
           </p>
           <div className="flex flex-1 w-full flex-row mt-8 mb-2 space-x-3">
@@ -56,15 +58,15 @@ const GenerateContent = () => {
 
           <div className="flex flex-1 w-full flex-row mt-6 mb-2 space-x-3">
             <img alt="2 icon" src={circle2} className="w-6 h-6" />
-            <p className=" font-medium text-left tracking-wide">
+            <p className=" font-lg font-medium text-left tracking-wide">
               เลือกกลุ่มสาระ
             </p>
           </div>
           <Combobox2 />
 
           <div className="flex flex-1 w-full flex-row mt-6 mb-2 space-x-3">
-            <img alt="2 icon" src={circle2} className="w-6 h-6" />
-            <p className=" font-medium text-left tracking-wide">
+            <img alt="2 icon" src={circle3} className="w-6 h-6" />
+            <p className=" font-lg font-medium text-left tracking-wide">
               เลือกจำนวนข้อ
             </p>
           </div>

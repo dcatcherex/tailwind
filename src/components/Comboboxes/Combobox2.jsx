@@ -27,14 +27,14 @@ const levels = [
   ]
 
 function ComboBox() {
-  const [selectedLevel, setSelectedLevel] = useState(levels[0]);
+  const [selectedLevel, setSelectedLevel] = useState(levels[3]);
 
   return (
     <div className="relative inline-block w-full">
       <select
         value={selectedLevel}
         onChange={(e) => setSelectedLevel(e.target.value)}
-        className="block appearance-none w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500"
+        className="indent-4 block appearance-none w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500"
       >
         {levels.map((option) => (
           <option key={option} value={option}>
