@@ -1,124 +1,77 @@
+import teacherpic from "../../assets/images/teacher.svg";
+import logo from "../../assets/images/logo.png";
+import circle1 from "../../assets/images/circle1.png";
+import circle2 from "../../assets/images/circle2.png";
+import apps from "../../assets/images/apps.svg";
+import students from "../../assets/images/icons/students.svg";
+import bot from "../../assets/images/icons/bot.svg";
+import examwhite from "../../assets/images/examwhite.svg";
+import Combobox1 from "../Comboboxes/Combobox1";
+import Combobox2 from "../Comboboxes/Combobox2";
+import { Bars3Icon } from "@heroicons/react/20/solid";
 
-import teacherpic from '../../assets/images/teacher.svg';
-import logo from '../../assets/images/logo.png';
-import circle1 from '../../assets/images/circle1.png';
-import circle2 from '../../assets/images/circle2.png';
-import apps from '../../assets/images/apps.svg';
-import students from '../../assets/images/students.svg';
-import examwhite from '../../assets/images/examwhite.svg';
+const options = ["Option 1", "Option 2", "Option 3"];
 
 const GenerateContent = () => {
   return (
     <>
-      <div className="bg-fixed  bg-violet-100 flex max-w-5xl mx-auto flex-col items-center justify-center ">
+      <div className="bg-fixed min-h-screen  bg-violet-100 flex max-w-5xl mx-auto flex-col items-center ">
         <header className="bg-white flex justify-between items-center w-full border-b-2 pb-3 py-2 sm:px-4 px-4">
-          <h1 className="sm:text-4xl text-2xl max-w-[708px] font-bold text-slate-800">
+          <div className=" flex gap-x-4 items-center sm:text-4xl text-2xl max-w-[708px] font-bold text-slate-800">
+            <button>
+              <Bars3Icon className="w-6 h-6 text-purple" />
+            </button>
             <img src={logo} />
-          </h1>
-          <h1>ทดสอบ</h1>
+          </div>
+
+          <div className="flex justify-end gap-2 items-center">
+            <button className="min-w-[100px] bg-purple rounded-full flex gap-x-1 items-center px-4 py-2 text-white font-light hover:ring-2 ring-offset-2 hover:bg-violet-300 ring-violet-500">
+              <img className="w-5 h-5" src={students} />
+              จัดสอบ
+            </button>
+          </div>
         </header>
-        <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-8 sm:mt-12">
+        {/* end of search */}
+        <main className="flex w-full flex-col items-center  px-4 mt-8 sm:mt-12">
           <img
             className="hidden sm:visible max-w-[300px] sm:max-w-[500px]"
             src={teacherpic}
           />
-          <h1 className="sm:text-6xl text-4xl max-w-[708px] font-semibold text-purple">
+          <h1 className="text-center sm:text-6xl text-4xl max-w-[708px] font-semibold text-purple">
             สร้างเนื้อหาทางการศึกษาด้วย AI
           </h1>
-          <p className="text-slate-500 mt-5 font-light ">
+          <p className="text-sm text-slate-500 mt-5 font-light ">
             สร้างเนื้อหาต่าง ๆ ไปแล้ว 0 ครั้ง
           </p>
-          <div className="flex flex-1 w-full flex-row mt-10 space-x-3">
-            <img
-              alt="1 icon"
-              src={circle1}
-              className="w-6 h-6"
-            />
+          <div className="flex flex-1 w-full flex-row mt-8 mb-2 space-x-3">
+            <img alt="1 icon" src={circle1} className="w-6 h-6" />
             <p className=" text-lg font-medium text-left tracking-wide">
-              ใส่เนื้อหาที่ต้องการลงไป{" "}
-              <span className="text-slate-500 font-normal">
-                (หรืออัพโหลดไฟล์เนื้อหาที่ต้องการ)
-              </span>
+              เลือกระดับชั้น
             </p>
           </div>
-          <textarea
-            rows="4"
-            className="font-body w-full rounded-md border-gray-300 focus:ring-dimviolet focus:ring-2 my-5 px-4 py-2"
-            placeholder="ส่วนประกอบสำคัญของตามนุษย์ มีรายละเอียดดังนี้
-            1. กระจกตา (Cornea) เป็นเนื้อเยื่อโปร่งใส อยู่ด้านหน้าสุดของนัยน์ตา กระจกตาทำหน้าที่รับและให้แสงผ่านเข้าสู่ภายใน
-            2. ม่านตา (Iris) ทำหน้าที่ควบคุมการขยายของรูม่านตา เพื่อให้ปริมาณแสงที่ผ่านเข้าไปสู่เลนส์ตาอยู่ในระดับพอเหมาะ
-            3. รูม่านตา (Pupil) เป็นสีดำอยู่ตรงกลางม่านตา ทำหน้าที่เป็นช่องทำให้แสงผ่านไปสู่เลนส์ตา
-            4. เลนส์ตา (Lens) เป็นเลนส์นูนที่สามารถยืดหยุ่นได้ ตามการหดตัวและคลายตัวของกล้ามเนื้อยึดเลนส์ตา เลนส์ตาทำหน้าที่โฟกัสภาพให้ไปตกบนจอรับภาพ
-            5. จอรับภาพหรือจอประสาทตา (Retina) เป็นอวัยวะที่ทำหน้าที่รับภาพคล้ายกับเซ็นเซอร์รับภาพในกล้องถ่ายรูปดิจิทัล เป็นชั้นที่อยู่ภายในสุดของตา"
-          ></textarea>
-          <div className="flex w-full items-center">
-            <div className="flex-auto h-[2px] bg-dimviolet"></div>
-          <p className="text-md  text-dimviolet px-2"> หรือ </p>
-            <div className="flex-auto h-[2px] bg-dimviolet"></div>
-          </div>
-          <div className="w-full mt-2">
-            <label
-              htmlFor="company-website"
-              className="block text-left  font-medium leading-6 text-gray-900"
-            >
-              ใช้เนื้อหาจากเว็บไซต์
-            </label>
-            <div className=" mt-2 flex rounded-md">
-              {/* <span className="inline-flex items-center rounded-l-md border-2 border-r-0 border-gray-300 px-3 text-gray-500 sm:text-sm">
-                https://
-              </span> */}
-              <input
-                type="text"
-                name="company-website"
-                id="company-website"
-                className="font-body block w-full min-w-0 flex-1 rounded-md border-0 border-gray-300 px-2 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-dimviolet focus:ring-2 sm:text-sm sm:leading-6"
-                placeholder="www.example.com"
-              />
-            </div>
-          </div>
+
+          <Combobox2 option={options} />
 
           {/* Topic2 */}
 
-          <div className="flex flex-1 w-full flex-row mt-12 space-x-3">
-            <img
-              alt="2 icon"
-              src={circle2}
-              className="w-6 h-6"
-            />
+          <div className="flex flex-1 w-full flex-row mt-6 mb-2 space-x-3">
+            <img alt="2 icon" src={circle2} className="w-6 h-6" />
             <p className=" font-medium text-left tracking-wide">
-              เลือกจำนวนข้อที่ต้องการ{" "}
+              เลือกกลุ่มสาระ
             </p>
           </div>
-          <input
-            className="w-full bg-red-600 mt-4"
-            type="range"
-            overflow="hidden"
-            min="0"
-            max="100"
-            step={10}
-            list="markers"
-          />
-          <datalist
-            className="w-full ml-3 flex  justify-between font-light text-xs text-slate-400"
-            id="markers"
-          >
-            <option value="0" label="0"></option>
-            <option value="10" label="10"></option>
-            <option value="20" label="20"></option>
-            <option value="30" label="30"></option>
-            <option value="40" label="40"></option>
-            <option value="50" label="50"></option>
-            <option value="60" label="60"></option>
-            <option value="70" label="70"></option>
-            <option value="80" label="80"></option>
-            <option value="90" label="90"></option>
-            <option value="100" label="100"></option>
-          </datalist>
+          <Combobox2 />
+
+          <div className="flex flex-1 w-full flex-row mt-6 mb-2 space-x-3">
+            <img alt="2 icon" src={circle2} className="w-6 h-6" />
+            <p className=" font-medium text-left tracking-wide">
+              เลือกจำนวนข้อ
+            </p>
+          </div>
+          <Combobox2 />
+
           <button className=" text-lg w-full justify-center inline-flex gap-x-1.5 items-center px-4 py-4 bg-dimviolet hover:bg-violet-300 rounded-md text-white font-light tracking-wide mt-8">
-            <img
-              className="w-5 h-5 stroke-white"
-              src={examwhite}
-            />
+            <img className="w-5 h-5 stroke-white" src={examwhite} />
             สร้างข้อสอบ
           </button>
         </main>
@@ -136,28 +89,31 @@ const GenerateContent = () => {
               ChatGPT API{" "}
             </a>
           </div>
-          <div>
+          {/* <div className="">
             Created by <p className="font-bold">Jone & Kiw</p>
-          </div>
+          </div> */}
         </footer>
         <div className="fixed w-full bottom-0 box-border flex flex-1 flex-row items-center justify-between border-t-4 border-violet-200 divide-x divide-violet-200">
           <a
             className="inline-flex items-center justify-center gap-x-2 text-center px-3 py-4 bg-purple hover:bg-slate-500 flex-1 text-white font-light"
             href=""
-          ><img className="w-4 h-4" src={apps}/>
+          >
+            <img className="w-4 h-4" src={apps} />
             รวมสื่อ
           </a>
           <a
             className="inline-flex items-center justify-center gap-x-2 text-center px-3 py-4 bg-purple hover:bg-slate-500 flex-1 text-white font-light "
             href=""
-          ><img className="w-5 h-5" src={examwhite}/>
+          >
+            <img className="w-5 h-5" src={examwhite} />
             สร้าง
           </a>
           <a
             className="inline-flex items-center justify-center gap-x-2 text-center px-3 py-4 bg-purple hover:bg-slate-500 flex-1 text-white font-light"
             href=""
-          ><img className="w-5 h-5" src={students}/>
-            จัดสอบ
+          >
+            <img className="fill-current text-green-600 w-6 h-6" src={bot} />
+            เพื่อนครู AI
           </a>
         </div>
       </div>

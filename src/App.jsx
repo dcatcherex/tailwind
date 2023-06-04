@@ -11,10 +11,8 @@ const App = () => {
   return (
     <>
 
-    <div className="bg-white py-4 px-4">
       {/* <ExamList /> */}
-    </div>
-    <TemplateSet />
+    {/* <TemplateSet /> */}
     <GenerateContent />
       {/* <div className="max-w-lg mx-auto px-4 ">
         <h1>this is app.js</h1>
