@@ -14,12 +14,12 @@ const ExamList = () => {
         </h1>
       </div>
 
-      <div className="grid grid-cols-1 px-6 sm:grid-cols-2  lg:grid-cols-3">
+      <div className="text-lg grid grid-cols-1 px-6 sm:grid-cols-2  lg:grid-cols-3">
         {/* ข้อสอบ */}
 
         {data.map(({ id, question, options, answer }) => (
           <div key={id} className="font-body font-medium mb-6 w-[300px]">
-            <h3 className="text-normal font-medium list-decimal">
+            <h3 className=" font-medium list-decimal">
               {id}. 
               {question}
             </h3>
