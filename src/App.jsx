@@ -2,15 +2,18 @@
 import GenerateContent from "./components/GenerateContent/GenerateContent";
 import TemplateSet from "./components/TemplateSet/TemplateSet";
 import ExamList from "./components/ExamList/ExamList";
+import Combobox3 from "./components/Comboboxes/Combobox3";
 
 
+
+const choices = ["sdfff","sdfsd","aaaa"]
 
 const App = () => {
   
 
   return (
     <>
-
+    <Combobox3 choice={choices} />
       {/* <ExamList /> */}
     {/* <TemplateSet /> */}
     <GenerateContent />

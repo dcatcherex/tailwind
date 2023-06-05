@@ -11,8 +11,10 @@ import examwhite from "../../assets/images/examwhite.svg";
 import Combobox1 from "../Comboboxes/Combobox1";
 import Combobox2 from "../Comboboxes/Combobox2";
 import { Bars3Icon } from "@heroicons/react/20/solid";
+import Buttongroups from "../Buttongroups/Buttongroups";
 
 const options = ["Option 1", "Option 2", "Option 3"];
+const buttontexts = ['1 ข้อ','5 ข้อ','10 ข้อ','15 ข้อ'];
 
 const GenerateContent = () => {
   return (
@@ -58,7 +60,7 @@ const GenerateContent = () => {
 
           <div className="flex flex-1 w-full flex-row mt-6 mb-2 space-x-3">
             <img alt="2 icon" src={circle2} className="w-6 h-6" />
-            <p className=" font-lg font-medium text-left tracking-wide">
+            <p className=" text-lg font-medium text-left tracking-wide">
               เลือกกลุ่มสาระ
             </p>
           </div>
@@ -66,11 +68,12 @@ const GenerateContent = () => {
 
           <div className="flex flex-1 w-full flex-row mt-6 mb-2 space-x-3">
             <img alt="2 icon" src={circle3} className="w-6 h-6" />
-            <p className=" font-lg font-medium text-left tracking-wide">
+            <p className=" text-lg font-medium text-left tracking-wide">
               เลือกจำนวนข้อ
             </p>
           </div>
-          <Combobox2 />
+          {/* <Combobox2 /> */}
+          <Buttongroups text = {buttontexts}/>
 
           <button className=" text-lg w-full justify-center inline-flex gap-x-1.5 items-center px-4 py-4 bg-dimviolet hover:bg-violet-300 rounded-md text-white font-light tracking-wide mt-8">
             <img className="w-5 h-5 stroke-white" src={examwhite} />

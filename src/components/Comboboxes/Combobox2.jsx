@@ -34,7 +34,7 @@ function ComboBox() {
       <select
         value={selectedLevel}
         onChange={(e) => setSelectedLevel(e.target.value)}
-        className="indent-4 block appearance-none w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500"
+        className="indent-4 block appearance-none w-full bg-white border border-gray-200 text-lg text-gray-700 py-3 px-4 pr-8 rounded leading-tight hover:ring-2 hover:ring-violet-500 focus:outline-none focus:border-gray-500"
       >
         {levels.map((option) => (
           <option key={option} value={option}>
