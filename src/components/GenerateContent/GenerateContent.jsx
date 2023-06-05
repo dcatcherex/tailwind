@@ -8,13 +8,37 @@ import apps from "../../assets/images/apps.svg";
 import students from "../../assets/images/icons/students.svg";
 import bot from "../../assets/images/icons/bot.svg";
 import examwhite from "../../assets/images/examwhite.svg";
-import Combobox1 from "../Comboboxes/Combobox1";
-import Combobox2 from "../Comboboxes/Combobox2";
+
+import SelectBox from "../Selectbox/Selectbox";
 import { Bars3Icon } from "@heroicons/react/20/solid";
 import Buttongroups from "../Buttongroups/Buttongroups";
+import TabsIcons from "../Tabs/Tabsicons";
 
-const options = ["Option 1", "Option 2", "Option 3"];
-const buttontexts = ['1 ข้อ','5 ข้อ','10 ข้อ','15 ข้อ'];
+const buttontexts = ["1 ข้อ", "5 ข้อ", "10 ข้อ", "20  ข้อ"];
+const levels = [
+  "ประถมศึกษาปีที่ 1",
+  "ประถมศึกษาปีที่ 2",
+  "ประถมศึกษาปีที่ 3",
+  "ประถมศึกษาปีที่ 4",
+  "ประถมศึกษาปีที่ 5",
+  "ประถมศึกษาปีที่ 6",
+  "มัธยมศึกษาปีที่ 1",
+  "มัธยมศึกษาปีที่ 2",
+  "มัธยมศึกษาปีที่ 3",
+];
+
+const subjects = [
+  "ภาษาไทย",
+  "คณิตศาสตร์",
+  "เทคโนโลยี",
+  "วิทยาศาสตร์",
+  "ศาสนาและวัฒนธรรม",
+  "สุขศึกษาและพลศึกษา",
+  "ทัศนศิลป์",
+  "ดนตรีและนาฏศิลป์",
+  "การงานอาชีพ",
+  "ภาษาต่างประเทศ",
+];
 
 const GenerateContent = () => {
   return (
@@ -41,20 +65,21 @@ const GenerateContent = () => {
             className="hidden sm:visible max-w-[300px] sm:max-w-[500px]"
             src={teacherpic}
           />
-          <h1 className="text-center sm:text-6xl text-4xl max-w-[708px] font-medium text-purple">
+          <h1 className="text-center sm:text-6xl text-4xl max-w-[708px] font-medium text-purple mb-8">
             สร้างแบบทดสอบแบบเลือกตอบ
           </h1>
-          <p className="text-sm text-slate-500 mt-2 font-light ">
-            สร้างเนื้อหาต่าง ๆ ไปแล้ว 0 ครั้ง
-          </p>
-          <div className="flex flex-1 w-full flex-row mt-8 mb-2 space-x-3">
+          
+
+            <TabsIcons />
+
+          <div className="flex flex-1 w-full flex-row mt-6 mb-2 space-x-3">
             <img alt="1 icon" src={circle1} className="w-6 h-6" />
             <p className=" text-lg font-medium text-left tracking-wide">
               เลือกระดับชั้น
             </p>
           </div>
 
-          <Combobox2 option={options} />
+          <SelectBox choice={levels} />
 
           {/* Topic2 */}
 
@@ -64,7 +89,7 @@ const GenerateContent = () => {
               เลือกกลุ่มสาระ
             </p>
           </div>
-          <Combobox2 />
+          <SelectBox choice={subjects} />
 
           <div className="flex flex-1 w-full flex-row mt-6 mb-2 space-x-3">
             <img alt="2 icon" src={circle3} className="w-6 h-6" />
@@ -73,12 +98,15 @@ const GenerateContent = () => {
             </p>
           </div>
           {/* <Combobox2 /> */}
-          <Buttongroups text = {buttontexts}/>
+          <Buttongroups text={buttontexts} />
 
           <button className=" text-lg w-full justify-center inline-flex gap-x-1.5 items-center px-4 py-4 bg-dimviolet hover:bg-violet-300 rounded-md text-white font-light tracking-wide mt-8">
             <img className="w-5 h-5 stroke-white" src={examwhite} />
             สร้างข้อสอบ
           </button>
+          <p className="text-sm text-slate-500 mt-2 font-light ">
+            สร้างเนื้อหาต่าง ๆ ไปแล้ว 0 ครั้ง
+          </p>
         </main>
 
         <footer className="text-center h-16 sm:h-20 w-full sm:pt-2 pt-4 border-t mt-5 flex sm:flex-row flex-col justify-between items-center px-3 space-y-3 sm:mb-0 mb-3">

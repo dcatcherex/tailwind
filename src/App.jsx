@@ -13,7 +13,6 @@ const App = () => {
 
   return (
     <>
-    <Combobox3 choice={choices} />
       {/* <ExamList /> */}
     {/* <TemplateSet /> */}
     <GenerateContent />

@@ -1,11 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
+  darkMode: ["class"],
+    content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    
     extend: {
       fontFamily:{
         sans: ['Kanit','Roboto'],
@@ -23,3 +23,4 @@ export default {
     require('@tailwindcss/forms'),
   ],
 }
+

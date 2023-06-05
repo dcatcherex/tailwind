@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-function ComboBox({choice}) {
-  const [selectedChoice, setSelectedChoice] = useState(choice[0]);
+function SelectBox({choice}) {
+  const [selectedChoice, setSelectedChoice] = useState(choice[3]);
 
   return (
     <div className="relative inline-block w-full">
@@ -22,4 +22,4 @@ function ComboBox({choice}) {
   );
 }
 
-export default ComboBox;
+export default SelectBox;
