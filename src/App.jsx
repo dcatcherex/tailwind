@@ -1,20 +1,51 @@
-
 import GenerateContent from "./components/GenerateContent/GenerateContent";
 import TemplateSet from "./components/TemplateSet/TemplateSet";
 import ExamList from "./components/ExamList/ExamList";
+import Tab from "./components/Tabs/Tab";
+import Tabs from "./components/Tabs/Tabs";
+import FilteredPaginatedList from "./components/FilteredPaginatedList";
+import JsonCarousel from "./components/JsonCarousel";
+import FileUploader from "./components/FileUploader";
+import { PDFViewer } from '@react-pdf/renderer';
 
 
 
-const choices = ["sdfff","sdfsd","aaaa"]
+
+
+import jsonData from "./assets/datas/prompttemplatedata.json"
+import ScrollableList from "./components/ScrollableList";
+import PdfDocument from "./components/PDF/PdfDocument";
+
 
 const App = () => {
-  
-
   return (
     <>
       {/* <ExamList /> */}
-    {/* <TemplateSet /> */}
-    <GenerateContent />
+      <Tabs>
+        <Tab label="Tab 1">
+        </Tab>
+        <Tab label="Tab 2">
+          <p>Content for Tab 2</p>
+        </Tab>
+        <Tab label="Tab 3">
+        
+
+        </Tab>
+      </Tabs>
+      <TemplateSet />
+
+      <FilteredPaginatedList jsonData={jsonData} />
+      <JsonCarousel jsonData={jsonData} />;
+      {/* <ScrollableList jsonData={jsonData} />; */}
+      <FileUploader />
+      <PDFViewer>
+        <PdfDocument />
+      </PDFViewer>
+
+
+
+
+      {/* <GenerateContent /> */}
       {/* <div className="max-w-lg mx-auto px-4 ">
         <h1>this is app.js</h1>
         <div className="divide-x-8"></div>

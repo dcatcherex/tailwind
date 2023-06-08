@@ -15,8 +15,26 @@
         rounded-md
     }
 
-    .font-title {
-        font-family: 'kanit';
-    }
+    .tabs {
+        @apply
+        flex
+        text-lg
+      }
+      
+      .tab-item {
+        @apply
+        cursor-pointer
+        px-8
+      }
+      
+      .tab-content {
+        display: none;
+      }
+      
+      .active .tab-content {
+        @apply
+        block
+        border-t-4
+      }
 
 }
