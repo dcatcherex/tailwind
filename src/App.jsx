@@ -15,6 +15,7 @@ import { PDFViewer } from '@react-pdf/renderer';
 import jsonData from "./assets/datas/prompttemplatedata.json"
 import ScrollableList from "./components/ScrollableList";
 import PdfDocument from "./components/PDF/PdfDocument";
+import SelectMenu from "./components/SelectMenu/SelectMenu";
 
 
 const App = () => {
@@ -32,6 +33,8 @@ const App = () => {
 
         </Tab>
       </Tabs>
+
+      <SelectMenu />
       <TemplateSet />
 
       <FilteredPaginatedList jsonData={jsonData} />

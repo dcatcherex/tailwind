@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 function SelectBox({choice}) {
-  const [selectedChoice, setSelectedChoice] = useState(choice[3]);
+  const [selectedChoice, setSelectedChoice] = useState(choice[0]);
 
   return (
     <div className="relative inline-block w-full">
