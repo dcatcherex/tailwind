@@ -9,12 +9,12 @@ import students from "../../assets/images/icons/students.svg";
 import bot from "../../assets/images/icons/bot.svg";
 import examwhite from "../../assets/images/examwhite.svg";
 
-import SelectBox from "../Selectbox/Selectbox";
+// import SelectBox from "../SelectBox/SelectBox";
 import { Bars3Icon } from "@heroicons/react/20/solid";
 import Buttongroups from "../Buttongroups/Buttongroups";
 import TabsIcons from "../Tabs/Tabsicons";
 
-const buttontexts = ["1 ข้อ", "5 ข้อ", "10 ข้อ", "20  ข้อ"];
+const buttontexts = ["1 ข้อ", "5 ข้อ", "10 ข้อ", "20 ข้อ"];
 const levels = [
   "ประถมศึกษาปีที่ 1",
   "ประถมศึกษาปีที่ 2",
@@ -79,7 +79,7 @@ const GenerateContent = () => {
             </p>
           </div>
 
-          <SelectBox choice={levels} />
+          {/* <SelectBox choice={levels} /> */}
 
           {/* Topic2 */}
 
@@ -89,7 +89,7 @@ const GenerateContent = () => {
               เลือกกลุ่มสาระ
             </p>
           </div>
-          <SelectBox choice={subjects} />
+          {/* <SelectBox choice={subjects} /> */}
 
           <div className="flex flex-1 w-full flex-row mt-6 mb-2 space-x-3">
             <img alt="2 icon" src={circle3} className="w-6 h-6" />
