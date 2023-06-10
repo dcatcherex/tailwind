@@ -16,12 +16,15 @@ import jsonData from "./assets/datas/prompttemplatedata.json"
 import ScrollableList from "./components/ScrollableList";
 import PdfDocument from "./components/PDF/PdfDocument";
 import SelectMenu from "./components/SelectMenu/SelectMenu";
+import ProgressBar from "./components/ProgressBar";
+import ExamType from "./components/ExamType/ExamType";
 
 
 const App = () => {
   return (
     <>
       {/* <ExamList /> */}
+      <ExamType />
       <Tabs>
         <Tab label="Tab 1">
         </Tab>
@@ -33,8 +36,11 @@ const App = () => {
 
         </Tab>
       </Tabs>
-
-      <SelectMenu />
+        <ProgressBar correct={25} incorrect={20} total={50} />
+        <div className="my-2">
+          <ProgressBar correct={40} incorrect={10} total={50} />
+        </div>
+        <ProgressBar correct={20} incorrect={20} total={50} />
       <TemplateSet />
 
       <FilteredPaginatedList jsonData={jsonData} />
