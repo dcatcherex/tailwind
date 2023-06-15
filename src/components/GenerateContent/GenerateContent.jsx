@@ -5,9 +5,9 @@ import circle2 from "../../assets/images/circle2.png";
 import circle3 from "../../assets/images/circle3.png";
 
 import apps from "../../assets/images/apps.svg";
-import students from "../../assets/images/icons/students.svg";
-import bot from "../../assets/images/icons/bot.svg";
 import examwhite from "../../assets/images/examwhite.svg";
+import bot from "../../assets/images/icons/bot.svg";
+import students from "../../assets/images/icons/students.svg";
 
 import SelectBox from "../SelectBox/SelectBox";
 import { Bars3Icon } from "@heroicons/react/20/solid";

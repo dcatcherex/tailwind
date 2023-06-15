@@ -47,18 +47,3 @@ const ExamList = () => {
 };
 
 export default ExamList;
-
-
- {/* <div className="font-body font-medium mb-6 w-[300px]">
-          <h3 className="text-normal">1. หน้าที่ของใบของพืชคืออะไร?</h3>
-          <div className="flex flex-col text- my-2 pl-6">
-            {choices.map((choice, index) => (
-              <p className= "font-light py-0.5 " key={index}>
-              <span className={`px-1 rounded-full ${choice === correct ? 'bg-green-500' : ''}`}>
-                {index + 1}.
-              </span>{" "}
-              <span className="text-slate-700 pl-2">{choice}</span>
-            </p>
-            ))}
-          </div>
-        </div> */}

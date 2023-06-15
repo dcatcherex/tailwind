@@ -1,4 +1,4 @@
-import quiz from '../../assets/images/quiz.png'
+// import quiz from '../../assets/images/quiz.png'
 import multiquiz from '../../assets/images/quiztypes/multiquiz.png'
 import truefalsequiz from '../../assets/images/quiztypes/truefalsequiz.png'
 import fillquiz from '../../assets/images/quiztypes/fillquiz.png'
@@ -55,7 +55,7 @@ const ExamType = () => {
 
                 <div className="pt-2 px-2">
                   <h2 className="text-lg font-medium">{type.type}</h2>
-                  <p className=" line-clamp-2 text-base font-body font-light text-gray-400 mt-1 s">{type.good}</p>
+                  <p className=" line-clamp-2 text-base font-body font-light text-gray-600 mt-1 s">{type.good}</p>
                 </div>
             </div>
             ))}
