@@ -1,5 +1,6 @@
 import data from "../../assets/datas/samplequestions.json";
 import { PrinterIcon } from "@heroicons/react/20/solid";
+import IndicatorBar from "../IndicatorBar";
 
 const ExamList = () => {
   const examTitle = "แบบทดสอบความสามารถด้านวิทยาศาสตร์";
@@ -30,6 +31,10 @@ const ExamList = () => {
           </svg>
           พิมพ์
         </div>
+      </div>
+
+      <div id="bar" className="mb-2">
+        <IndicatorBar knowledge={20} process={20} attribute={10}/>
       </div>
 
       <div className="text-lg grid grid-cols-1 px-6 sm:grid-cols-2  lg:grid-cols-3">
