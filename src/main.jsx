@@ -8,7 +8,7 @@ import {
 import Root from "./routes/root";
 import ExamType from './components/ExamType/ExamType';
 import './index.css'
-import Index from "./routes/index";
+// import Index from "./routes/index";
 import TemplateSet from './components/TemplateSet/TemplateSet';
 import GenerateQuiz from "./components/GenerateQuiz/GenerateQuiz";
 
