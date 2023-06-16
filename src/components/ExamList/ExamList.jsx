@@ -42,7 +42,7 @@ const ExamList = () => {
       </div>
 
       {/* ปุ่มสอบ */}
-      <div className=" p-4 grid grid-cols-3 gap-x-2  ">
+      <div className=" p-4 grid grid-cols-2 gap-x-2  ">
         <button className="text-base font-light py-4 btn bg-dimviolet inline-flex justify-center gap-x-1.5 items-center ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +78,7 @@ const ExamList = () => {
           </svg>
           จัดสอบ
         </button>
-        <button className=" text-base font-light py-4 btn bg-dimviolet inline-flex justify-center gap-x-1.5 items-center">
+        {/* <button className=" text-base font-light py-4 btn bg-dimviolet inline-flex justify-center gap-x-1.5 items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -94,7 +94,7 @@ const ExamList = () => {
             />
           </svg>
           พิมพ์
-        </button>
+        </button> */}
       </div>
 
       <div className="mt-4 text-lg grid grid-cols-1 px-6 sm:grid-cols-2  lg:grid-cols-3">
