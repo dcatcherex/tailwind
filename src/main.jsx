@@ -1,36 +1,43 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
-import "./index.css";
-import { useLocation } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
-import TopMenuBar from "./components/TopMenuBar.jsx";
-import BottomMenuBar from "./components/BottomMenuBar.jsx";
+import * as React from "react";
+import * as ReactDOM from "react-dom/client";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
-const ConditionalBottomMenuBar = () => {
-  const location = useLocation();
-  const excludedPaths = ["/login", "/register"];
+import Root from "./routes/root";
+import ExamType from './components/ExamType/ExamType';
+import './index.css'
+import Index from "./routes/index";
+import TemplateSet from './components/TemplateSet/TemplateSet';
+import GenerateQuiz from "./components/GenerateQuiz/GenerateQuiz";
 
-  if (excludedPaths.includes(location.pathname)) return null;
-
-  return <BottomMenuBar />;
-};
-
-const ConditionalTopMenuBar = () => {
-  const location = useLocation();
-  const excludedPaths = ["/login", "/register"];
-
-  if (excludedPaths.includes(location.pathname)) return null;
-
-  return <TopMenuBar />;
-};
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    // loader: rootLoader,
+    children: [
+      { index: true, element: <Index /> },
+      {
+        path: "examtype",
+        element: <ExamType />,
+        // loader: ExamTypeLoader,
+      },
+      {
+        path: "template",
+        element: <TemplateSet />,
+        // loader: ExamTypeLoader,
+      },
+      {
+        path: "generatequiz",
+        element: <GenerateQuiz />,
+        // loader: ExamTypeLoader,
+      },
+    ],
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <ConditionalTopMenuBar />
-      <App />
-      <ConditionalBottomMenuBar />
-    </BrowserRouter>
-  </React.StrictMode>
+  <RouterProvider router={router} />
 );

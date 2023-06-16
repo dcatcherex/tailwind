@@ -6,13 +6,16 @@ import matchquiz from '../../assets/images/quiztypes/matchquiz.png'
 import mixquiz from '../../assets/images/quiztypes/mixquiz.png'
 import writequiz from '../../assets/images/quiztypes/writequiz.png'
 
+import { Link } from 'react-router-dom'
+
 const questionTypes = [
     {
     id: 1,
     type: "แบบเลือกตอบ (multiple choice)",
     good: "วัดพฤติกรรมพุทธิพิสัยได้ครบทั้ง 6 ขั้น ตรวจง่าย เขียนข้อสอบได้คลุมเนื้อหา",
     bad: "สร้างยากโดยเฉพาะคำถามที่วัดพฤติกรรมขั้นสูง ใช้เวลาในการเขียนข้อสอบนาน วัดการแสดงวิธีทำ ทักษะการเขียน การวิพากษ์วิจารณ์ การอภิปรายแสดงความคิดเห็นไม่ได้",
-    image: multiquiz
+    image: multiquiz,
+    link: "/generatequiz"
   },{
     id: 2,
     type: "แบบถูก-ผิด (true/false)",
@@ -48,16 +51,17 @@ const questionTypes = [
 
 const ExamType = () => {
   return (
-    <div className="bg-violet-100 pt-4">
+    <div className="">
+        <Link to={""}></Link>
         {questionTypes.map ((type) => (
-            <div key={type.id} className=" flex bg-white w-[100%-100px] mx-4 mt-2 rounded-md border-2 shadow-sm hover:ring-2 hover:cursor-pointer hover:ring-violet-500 active:bg-violet-100">
+            <Link to={type.link} key={type.id} className=" flex bg-white w-[100%-100px] mx-4 mt-2 rounded-md border-2 shadow-sm hover:ring-2 hover:cursor-pointer hover:ring-violet-500 active:bg-violet-100">
                 <img className="w-[100px] h-[100px] rounded-l-md border-r-2" src={type.image} />
 
                 <div className="pt-2 px-2">
                   <h2 className="text-lg font-medium">{type.type}</h2>
                   <p className=" line-clamp-2 text-base font-body font-light text-gray-600 mt-1 s">{type.good}</p>
                 </div>
-            </div>
+            </Link>
             ))}
     </div>
   )
