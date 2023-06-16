@@ -24,10 +24,10 @@ const TemplateSet = ({jsonData}) => {
     <div className="min-h-screen">
       {/* button filter */}
       <div className="flex justify-center pt-4">
-        <button className="btn px-4 py-1 min-w-[70px] rounded-full" onClick={()=> setFilterValue("all")}>All</button>
-        <button className="btn px-4 py-1 min-w-[70px] rounded-full" onClick={()=> setFilterValue("writing")}>Writing</button>
-        <button className="btn px-4 py-1 min-w-[70px] rounded-full" onClick={()=> setFilterValue("social")}>Social</button>
-        <button className="btn px-4 py-1 min-w-[70px] rounded-full" onClick={()=> setFilterValue("education")}>Education</button>
+        <button className="btn px-4 py-2 min-w-[70px] rounded-full" onClick={()=> setFilterValue("all")}>All</button>
+        <button className="btn px-4 py-2 min-w-[70px] rounded-full" onClick={()=> setFilterValue("writing")}>Writing</button>
+        <button className="btn px-4 py-2 min-w-[70px] rounded-full" onClick={()=> setFilterValue("social")}>Social</button>
+        <button className="btn px-4 py-2 min-w-[70px] rounded-full" onClick={()=> setFilterValue("education")}>Education</button>
       </div>
       
       <main className=" bg-violet-100 grid grid-cols-2 gap-4 pt-2 mt-2 px-4 ">
