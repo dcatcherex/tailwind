@@ -13,6 +13,7 @@ import SelectBox from "../SelectBox/SelectBox";
 import { Bars3Icon } from "@heroicons/react/20/solid";
 import Buttongroups from "../Buttongroups/Buttongroups";
 import TabsIcons from "../Tabs/Tabsicons";
+import { Link } from "react-router-dom";
 
 const buttontexts = ["1 ข้อ", "5 ข้อ", "10 ข้อ", "20 ข้อ"];
 const levels = [
@@ -40,6 +41,16 @@ const subjects = [
   "ภาษาต่างประเทศ",
 ];
 
+const topics = [
+  "สิ่งมีชีวิตรอบตัว",
+  "พืชดอก",
+  "สัตว์มีกระดูกสันหลัง",
+  "สารรอบตัว",
+  "แรง",
+  "แสง",
+  "ดวงจันทร์และระบบสุริยะ",
+]
+
 const GenerateQuiz = () => {
   return (
     <>
@@ -51,7 +62,7 @@ const GenerateQuiz = () => {
             className="hidden sm:visible max-w-[300px] sm:max-w-[500px]"
             src={teacherpic}
           />
-          <h1 className="text-center sm:text-6xl text-4xl max-w-[708px] font-medium text-purple mb-8">
+          <h1 className="text-center sm:text-6xl text-2xl max-w-[708px] font-medium text-purple mb-8">
             สร้างแบบทดสอบแบบเลือกตอบ
           </h1>
           
@@ -78,6 +89,14 @@ const GenerateQuiz = () => {
           <SelectBox choice={subjects} />
 
           <div className="flex flex-1 w-full flex-row mt-6 mb-2 space-x-3">
+            <img alt="3 icon" src={circle3} className="w-6 h-6" />
+            <p className=" text-lg font-medium text-left tracking-wide">
+              เลือกหัวข้อ
+            </p>
+          </div>
+          <SelectBox choice={topics} />
+
+          <div className="flex flex-1 w-full flex-row mt-6 mb-2 space-x-3">
             <img alt="2 icon" src={circle3} className="w-6 h-6" />
             <p className=" text-lg font-medium text-left tracking-wide">
               เลือกจำนวนข้อ
@@ -86,10 +105,10 @@ const GenerateQuiz = () => {
           {/* <Combobox2 /> */}
           <Buttongroups text={buttontexts} />
 
-          <button className=" text-lg w-full justify-center inline-flex gap-x-1.5 items-center px-4 py-4 bg-dimviolet hover:bg-violet-300 rounded-md text-white font-light tracking-wide mt-8">
+          <Link to="/examlist" className=" text-lg w-full justify-center inline-flex gap-x-1.5 items-center px-4 py-4 bg-dimviolet hover:bg-violet-300 rounded-md text-white font-light tracking-wide mt-8">
             <img className="w-5 h-5 stroke-white" src={examwhite} />
             สร้างข้อสอบ
-          </button>
+          </Link>
           <p className="text-sm text-slate-500 mt-2 font-light ">
             สร้างเนื้อหาต่าง ๆ ไปแล้ว 0 ครั้ง
           </p>

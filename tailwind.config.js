@@ -23,6 +23,7 @@ export default {
         current: 'currentColor',
         'purple': '#AA6DAB',
         'dimviolet': '#645CA7',
+        'darkviolet':'#360E33',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

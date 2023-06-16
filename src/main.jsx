@@ -11,6 +11,7 @@ import './index.css'
 // import Index from "./routes/index";
 import TemplateSet from './components/TemplateSet/TemplateSet';
 import GenerateQuiz from "./components/GenerateQuiz/GenerateQuiz";
+import ExamList from './components/ExamList/ExamList';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
       {
         path: "generatequiz",
         element: <GenerateQuiz />,
+        // loader: ExamTypeLoader,
+      },
+      {
+        path: "examlist",
+        element: <ExamList />,
         // loader: ExamTypeLoader,
       },
     ],
