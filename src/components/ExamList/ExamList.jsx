@@ -36,15 +36,20 @@ const ExamList = () => {
       <div id="bar" className="mb-2">
         <IndicatorBar knowledge={20} process={20} attribute={10}/>
       </div>
+      <div className="text-base font-light font-sans text-slate-600 text-center  ">อ้างอิง: หนังสือเรียนรายวิชาพื้นฐานวิทยาศาสตร์และเทคโนโลยี ป.4 เล่ม 1 เรื่อง...</div>
 
-      <div className="text-lg grid grid-cols-1 px-6 sm:grid-cols-2  lg:grid-cols-3">
+      <div className="mt-4 text-lg grid grid-cols-1 px-6 sm:grid-cols-2  lg:grid-cols-3">
         {/* ข้อสอบ */}
 
         {data.map(({ id, question, options, answer }) => (
-          <div key={id} className="font-body font-medium mb-6 w-[300px]">
+          <div key={id} className="font-body font-medium mb-6 sm:w-[300px]">
             <h3 className=" font-medium list-decimal">
               {id}.{question}
             </h3>
+            <div className="flex gap-x-2 font-light font-base font-sans">
+              <div className=" text-center text-lime-500 ">ความรู้</div>
+              <div className=" text-gray-400">/ ง่าย</div>
+            </div>
             <ol className="list-decimal my-2 pl-8">
               {options.map((option) => (
                 <li key={option} className="font-light py-0.5 ">
@@ -58,6 +63,7 @@ const ExamList = () => {
                 </li>
               ))}
             </ol>
+            
           </div>
         ))}
       </div>

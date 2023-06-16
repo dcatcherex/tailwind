@@ -5,53 +5,33 @@ import quiz from "../../assets/images/quiz.png";
 import ExamType from "../ExamType/ExamType";
 import { useState } from "react";
 
-import templates from "../../assets/datas/prompttemplatedata.json";
+const TemplateSet = ({jsonData}) => {
+  const [filterValue, setFilterValue] = useState("all");
+  // const ITEMS_PER_PAGE = 20;
 
-const TemplateSet = () => {
-  const ITEMS_PER_PAGE = 6;
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const handleClickNext = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
+  const handleChangeFilter = (event) => {
+    setFilterValue(event.target.value);
+    // setCurrentPage(1); // Reset to the first page when changing the filter.
   };
 
-  const handleClickPrev = () => {
-    setCurrentPage((prevPage) => prevPage - 1);
-  };
-
-  const handleClickPage = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
-  const totalPages = Math.ceil(templates.length / ITEMS_PER_PAGE);
-  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
-
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIndex = startIndex + ITEMS_PER_PAGE;
-
-  const paginatedData = templates.slice(startIndex, endIndex);
-
-  const displayWithFilter = ()=> {
-    const [filterValue, setFilterValue] = useState("");
-  }
-
-  // const filteredData = data.filter((item) => {
-  //   // Return true if there's no active filter or if the item matches the active filter.
-  //   return !filterValue || item.type === filterValue;
-  // });
+    // Filter data based on selected option.
+    const filteredData =
+    filterValue === 'all'
+      ? jsonData
+      : jsonData.filter((item) => item.type === filterValue);
 
   return (
-    <div>
+    <div className="min-h-screen">
       {/* button filter */}
-      <div>
-        <button className="btn" onClick={()=> setFilterValue("")}>All</button>
-        <button className="btn" onClick={()=> setFilterValue("writing")}>Writing</button>
-        <button className="btn" onClick={()=> setFilterValue("social")}>Social</button>
-        <button className="btn" onClick={()=> setFilterValue("social")}>Education</button>
+      <div className="flex justify-center pt-4">
+        <button className="btn px-4 py-1 min-w-[70px] rounded-full" onClick={()=> setFilterValue("all")}>All</button>
+        <button className="btn px-4 py-1 min-w-[70px] rounded-full" onClick={()=> setFilterValue("writing")}>Writing</button>
+        <button className="btn px-4 py-1 min-w-[70px] rounded-full" onClick={()=> setFilterValue("social")}>Social</button>
+        <button className="btn px-4 py-1 min-w-[70px] rounded-full" onClick={()=> setFilterValue("education")}>Education</button>
       </div>
       
-      <main className=" bg-violet-100 grid grid-cols-2 gap-4 pt-4 mt-4 px-4">
-        {paginatedData.map(({ id, title, des, view }) => (
+      <main className=" bg-violet-100 grid grid-cols-2 gap-4 pt-2 mt-2 px-4 ">
+        {filteredData.map(({ id, title, des, view }) => (
           <div
             key={id}
             className="flex flex-col gap-x-2 px-2 py-1  bg-white rounded-md shadow-md hover:ring-2 hover:cursor-pointer hover:ring-violet-500 active:bg-violet-100"
@@ -81,35 +61,9 @@ const TemplateSet = () => {
           </div>
         ))}
       </main>
-      <button
-        className="btn"
-        onClick={handleClickPrev}
-        disabled={currentPage === 1}
-      >
-        Prev
-      </button>
-      {pageNumbers.map((pageNumber) => (
-        <button
-          key={pageNumber}
-          onClick={() => handleClickPage(pageNumber)}
-          className={
-            currentPage === pageNumber
-              ? "btn bg-violet-500 border-violet-500"
-              : "btn"
-          }
-        >
-          {pageNumber}
-        </button>
-      ))}
-      <button
-        className="btn"
-        onClick={handleClickNext}
-        disabled={endIndex >= templates.length}
-      >
-        Next
-      </button>
 
-      {/* <ExamType /> */}
+
+ 
     </div>
   );
 };

@@ -13,6 +13,9 @@ import TemplateSet from './components/TemplateSet/TemplateSet';
 import GenerateQuiz from "./components/GenerateQuiz/GenerateQuiz";
 import ExamList from './components/ExamList/ExamList';
 
+import templates from "../src/assets/datas/prompttemplatedata.json";
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "template",
-        element: <TemplateSet />,
+        element: <TemplateSet jsonData={templates}/>,
         // loader: ExamTypeLoader,
       },
       {
