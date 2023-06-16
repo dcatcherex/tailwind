@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     element: <Root />,
     // loader: rootLoader,
     children: [
-      { index: true, element: <Index /> },
+      // { index: true, element: <Index /> },
       {
         path: "examtype",
         element: <ExamType />,
