@@ -45,10 +45,10 @@ const ExamPortal = () => {
   );
   const likeFilteredData = QuizListData.filter((item) => item.like === true);
 
-  const filteredData = filterValue === "all" ? levels : filterValue;
+  const filteredData = filterValue === "all" ? subjects : filterValue;
   return (
     <div>
-      <SelectBox choice={levels} />
+      {/* <SelectBox choice={levels} /> */}
       {/* button filter */}
       <div className="flex justify-center pt-4">
         <button
@@ -102,7 +102,7 @@ const ExamPortal = () => {
           </svg>
           ที่ใช้บ่อย
         </h3>
-        <div className="flex gap-2 mt-2 overflow-auto">
+        <div className="flex gap-2 mt-1 overflow-auto">
           {timeFilteredData.map(
             ({ id, section, level, subject, question, view }) => (
               <div
@@ -168,7 +168,7 @@ const ExamPortal = () => {
           </svg>
           ที่เลือกไว้
         </h3>
-        <div className="flex gap-2 mt-2 overflow-auto">
+        <div className="flex gap-2 mt-1 overflow-auto">
           {likeFilteredData.map(
             ({ id, section, level, subject, question, view }) => (
               <div
@@ -224,7 +224,7 @@ const ExamPortal = () => {
 
           มาใหม่
         </h3>
-        <div className="flex gap-2 mt-2 overflow-auto">
+        <div className="flex gap-2 mt-1 overflow-auto">
           {likeFilteredData.map(
             ({ id, section, level, subject, question, view }) => (
               <div

@@ -1,6 +1,7 @@
 import data from "../../assets/datas/samplequestions.json";
 import { PrinterIcon } from "@heroicons/react/20/solid";
 import IndicatorBar from "../IndicatorBar";
+import { Link } from "react-router-dom";
 
 const ExamList = () => {
   const examTitle = "แบบทดสอบความสามารถด้านวิทยาศาสตร์";
@@ -61,7 +62,7 @@ const ExamList = () => {
           ให้การบ้าน
         </button>
 
-        <button className=" text-base font-light py-4 btn bg-dimviolet inline-flex justify-center gap-x-1.5 items-center">
+        <Link to={"/examsetting"} className=" text-base font-light py-4 btn bg-dimviolet inline-flex justify-center gap-x-1.5 items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -77,7 +78,7 @@ const ExamList = () => {
             />
           </svg>
           จัดสอบ
-        </button>
+        </Link>
         {/* <button className=" text-base font-light py-4 btn bg-dimviolet inline-flex justify-center gap-x-1.5 items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
