@@ -16,6 +16,11 @@ import ExamList from './components/ExamList/ExamList';
 import templates from "../src/assets/datas/prompttemplatedata.json";
 import ExamPortal from "./components/Exam/ExamPortal";
 import ExamSetting from "./components/Exam/ExamSetting";
+import ExamMonitor from "./components/Exam/ExamMonitor";
+import ExamResult from "./components/Exam/ExamResult";
+
+
+
 
 
 
@@ -55,6 +60,16 @@ const router = createBrowserRouter([
       {
         path: "examsetting",
         element: <ExamSetting />,
+        // loader: ExamTypeLoader,
+      },
+      {
+        path: "exammonitor",
+        element: <ExamMonitor />,
+        // loader: ExamTypeLoader,
+      },
+      {
+        path: "examresult",
+        element: <ExamResult />,
         // loader: ExamTypeLoader,
       },
     ],

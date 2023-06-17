@@ -5,10 +5,10 @@ const ProgressBar = ({ correct, incorrect, total }) => {
 
   return (
     <>
-        <div className="flex justify-end text-xs text-gray-500">{currentRate}%</div>
-      <div className="flex w-full h-[10px] bg-slate-200 rounded-lg">
+        {/* <div className="flex justify-end text-xs text-gray-500">{currentRate}%</div> */}
+      <div className="flex h-[10px] bg-slate-300 rounded-lg">
         <div
-          className="bg-gradient-to-r from-lime-300 to-lime-500 "
+          className="bg-gradient-to-r from-lime-300 to-lime-500 rounded-s-full "
           style={{ width: `${correctRate}%` }}
         />
         <div
