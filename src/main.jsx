@@ -14,6 +14,7 @@ import GenerateQuiz from "./components/GenerateQuiz/GenerateQuiz";
 import ExamList from './components/ExamList/ExamList';
 
 import templates from "../src/assets/datas/prompttemplatedata.json";
+import ExamPortal from "./components/Exam/ExamPortal";
 
 
 const router = createBrowserRouter([
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
       {
         path: "examlist",
         element: <ExamList />,
+        // loader: ExamTypeLoader,
+      },
+      {
+        path: "examportal",
+        element: <ExamPortal />,
         // loader: ExamTypeLoader,
       },
     ],
