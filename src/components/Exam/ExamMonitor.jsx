@@ -8,16 +8,17 @@ import avatar4 from "../../assets/images/avatars/avatar4.png";
 import avatar5 from "../../assets/images/avatars/avatar5.png";
 import avatar6 from "../../assets/images/avatars/avatar6.png";
 
+
 const avatarMap = {
-  "avatar1": avatar1,
-  "avatar2": avatar2,
-  "avatar3": avatar3,
-  "avatar4": avatar4,
-  "avatar5": avatar5,
-  "avatar6": avatar6
+  avatar1: avatar1,
+  avatar2: avatar2,
+  avatar3: avatar3,
+  avatar4: avatar4,
+  avatar5: avatar5,
+  avatar6: avatar6,
 };
 
-import studentScoreData from "../../assets/datas/studentscoredata.json"
+import studentScoreData from "../../assets/datas/studentscoredata.json";
 
 const ExamMonitor = () => {
   const examTitle = "แบบทดสอบความสามารถด้านวิทยาศาสตร์";
@@ -28,7 +29,9 @@ const ExamMonitor = () => {
   const difficultExam = ["8", "15"];
 
   const [isPaused, setIsPaused] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(3600); // 1 hour
+  const [timeLeft, setTimeLeft] = useState(0); // 1 hour
+  const [isFinished, setIsFinished] = useState(false);
+  const [timeExpired, setTimeExpired] = useState(false);
 
   useEffect(() => {
     let timer = null;
@@ -37,6 +40,11 @@ const ExamMonitor = () => {
       timer = setTimeout(() => {
         setTimeLeft(timeLeft - 1);
       }, 1000);
+    }
+
+    if (timeLeft === 0 && !timeExpired) {
+      handleTimeUp();
+      setTimeExpired(true);
     }
 
     return () => clearTimeout(timer);
@@ -53,6 +61,7 @@ const ExamMonitor = () => {
   const handleTimeUp = () => {
     // Perform actions when the time is up
     // e.g., submit the quiz, show the results, etc.
+    // setIsFinished(!isFinished)
     console.log("Time is up!");
   };
 
@@ -106,10 +115,13 @@ const ExamMonitor = () => {
           id="timer"
           className="text-gray-500 text-6xl font-medium tracking-wider text-center"
         >
-          <QuizTimer totalTime={4000} onTimeUp={handleTimeUp} />
+          <QuizTimer totalTime={30} onTimeUp={handleTimeUp} />
+
         </h1>
-        <div className="grid grid-cols-4">
-          <button className="btn bg-orange-500">ยกเลิก</button>
+        <button className={`${isFinished ? "block" : "hidden"} btn bg-dimviolet w-full text-xl`}>สรุปผล</button>
+
+        <div className={`${isFinished ? "hidden" : "block"} grid grid-cols-4`}>
+          <button className=" btn bg-orange-500 none">ยกเลิก</button>
           <button className="btn bg-dimviolet">-5 นาที</button>
           <button
             onClick={() => handleAddTime(60)}
@@ -119,34 +131,59 @@ const ExamMonitor = () => {
           </button>
           <button className="btn bg-dimviolet">หยุด/ต่อ</button>
         </div>
-        <div className="text-6xl"></div>
-        นักเรียนที่ทำแบบประเมินผลเสร็จแล้ว
-        <ProgressBar correct={7} incorrect={0} total={12} />
-        <div>คะแนนเฉลี่ย: {averageScore}</div>
-        <div>
-          ข้อที่ใช้เวลานาน:{" "}
-          {difficultExam.map((difficult) => (
-            <p key={difficult}>{difficult}</p>
-          ))}
+        <div className="flex justify-between  items-end gap-x-2 mt-6">
+          <div className="w-full">
+            นักเรียนที่ทำแบบประเมินผลเสร็จแล้ว
+            <ProgressBar correct={7} incorrect={0} total={12} />
+          </div>
+          <p className=" -mb-3">7/12</p>
         </div>
-        
-        {studentScoreData.map(({id,name,avatar,correct,incorrect,total})=>(
-
-        <div key={id} className=" flex gap-x-4 items-baseline">
-          <div className=" w-full">
-            <div className="flex gap-x-2 items-baseline">
-              <img src={avatarMap[avatar]} alt="avatar1" className="w-10 h-10" />
-              <div>{name}</div>
+        <div className="flex justify-between border-2 border-slate-400 rounded-lg px-4 py-2 mb-8 mt-4">
+          <div>
+            คะแนนเฉลี่ย:{" "}
+            <span className="text-2xl font-semibold text-darkviolet -mb-">
+              {averageScore}
+            </span>
+          </div>
+          <div className="flex">
+            <p>
+              ข้อที่ใช้เวลานาน:{" "}
+              <span className="text-2xl font-semibold text-darkviolet -mb-">
+                8, 15
+              </span>
+            </p>
+            {/* {difficultExam.map((difficult) => (
+              <p key={difficult}>{difficult}</p>
+            ))} */}
+          </div>
+        </div>
+        {studentScoreData.map(
+          ({ id, name, avatar, correct, incorrect, total }) => (
+            <div key={id} className=" flex gap-x-4 items-baseline">
+              <div className=" w-full">
+                <div className="flex gap-x-2 items-baseline">
+                  <img
+                    src={avatarMap[avatar]}
+                    alt="avatar1"
+                    className="w-10 h-10"
+                  />
+                  <div>{name}</div>
+                </div>
+                <ProgressBar
+                  correct={correct}
+                  incorrect={incorrect}
+                  total={total}
+                />
+              </div>
+              <div className="text-center">
+                <h3 className="text-2xl font-semibold text-darkviolet -mb-2">
+                  {correct}
+                </h3>
+                <p className="text-slate-500 ">{correct + incorrect}/20</p>
+              </div>
             </div>
-            <ProgressBar correct={correct} incorrect={incorrect} total={total} />
-          </div>
-          <div className="text-center">
-            <h3 className="text-2xl font-semibold text-darkviolet -mb-2">{correct}</h3>
-            <p className="text-slate-500 ">{correct+incorrect}/20</p>
-          </div>
-        </div>
-        ))}
-
+          )
+        )}
         <div className=" flex gap-x-4 items-baseline">
           <div className=" w-full">
             <div className="flex gap-x-2 items-baseline">
@@ -160,7 +197,6 @@ const ExamMonitor = () => {
             <p className="text-slate-500 ">14/20</p>
           </div>
         </div>
-
       </div>
     </div>
   );
