@@ -18,6 +18,7 @@ import ExamPortal from "./components/Exam/ExamPortal";
 import ExamSetting from "./components/Exam/ExamSetting";
 import ExamMonitor from "./components/Exam/ExamMonitor";
 import ExamResult from "./components/Exam/ExamResult";
+import TakeExam from "./components/Exam/TakeExam";
 
 
 
@@ -70,6 +71,11 @@ const router = createBrowserRouter([
       {
         path: "examresult",
         element: <ExamResult />,
+        // loader: ExamTypeLoader,
+      },
+      {
+        path: "takeexam",
+        element: <TakeExam />,
         // loader: ExamTypeLoader,
       },
     ],

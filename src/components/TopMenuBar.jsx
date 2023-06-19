@@ -17,7 +17,7 @@ const TopMenuBar = () => {
           </div>
 
           <div className="flex justify-end gap-2 items-center">
-            <Link to={"examportal"} className="min-w-[100px] bg-purple rounded-full flex gap-x-1 items-center px-4 py-2 text-white font-light hover:ring-2 ring-offset-2 hover:bg-violet-300 ring-violet-500">
+            <Link to={"takeexam"} className="min-w-[100px] bg-purple rounded-full flex gap-x-1 items-center px-4 py-2 text-white font-light hover:ring-2 ring-offset-2 hover:bg-violet-300 ring-violet-500">
               <img className="w-5 h-5" src={students} />
               จัดสอบ
             </Link>
