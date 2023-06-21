@@ -1,0 +1,28 @@
+{
+  "question_id": 1,
+  "difficulty_level": "medium",
+  "topic": "language",
+  "subtopic": "greetings",
+  "items_to_match": [
+    {
+      "id": "A",
+      "description": "Hello"
+    },
+    {
+      "id": "B",
+      "description": "Goodbye"
+    },
+    {
+      "id": "C",
+      "description": "Thank you"
+    }
+  ],
+  "choices": [
+    { "id": "A", "label": "Hola", "match_id": "A" },
+
+    { "id": "B", "label": "Adiós", "match_id": "B" },
+
+    { "id": "C", "label": "Gracias", "match_id": "C" }
+  ],
+  "hint_resource": ""
+}

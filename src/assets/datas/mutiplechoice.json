@@ -1,0 +1,14 @@
+{
+  "question_id": 1,
+  "difficulty_level": "easy",
+  "topic": "math",
+  "subtopic": "addition",
+  "question_text": "What is the sum of 3 + 4?",
+  "options": [
+    { "option_id": "A", "option_text": "5" },
+    { "option_id": "B", "option_text": "7" },
+    { "option_id": "C", "option_text": "12" },
+    { "option_id": "D", "option_text": "-1" }
+  ],
+  "hint_resource": ""
+}

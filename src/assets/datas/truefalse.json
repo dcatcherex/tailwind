@@ -1,0 +1,10 @@
+{
+    "question_id": 1,
+    "difficulty_level": "easy",
+    "topic": "science",
+    "subtopic": "physics",
+    "question_text": "Light travels faster in water than in air.",
+    "answer": false,
+    "hint_resource": ""
+  }
+  

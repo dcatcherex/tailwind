@@ -1,0 +1,10 @@
+{
+    "question_id": 1,
+    "difficulty_level": "medium",
+    "topic": "geography",
+    "subtopic": "countries",
+    "question_template": "{country} is the capital of France.",
+    "answer": ["Paris"],
+    "hint_resource": ""
+  }
+  

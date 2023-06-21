@@ -53,9 +53,9 @@ const TemplateSet = ({jsonData}) => {
                 <p className="text-xs font-light text-gray-400">{view}</p>
               </div>
               <div className="flex gap-x-2 items-center">
-                <buttn className="hover:bg-slate-500">
+                <button className="hover:bg-slate-500">
                   <img className="w-3 h-3" src={link} />
-                </buttn>
+                </button>
               </div>
             </div>
           </div>
