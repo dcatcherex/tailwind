@@ -20,6 +20,10 @@ import ExamMonitor from "./components/Exam/ExamMonitor";
 import ExamResult from "./components/Exam/ExamResult";
 import TakeExam from "./components/Exam/TakeExam";
 
+import AiChat from "./components/AiChat/AiChat";
+
+
+
 
 
 
@@ -76,6 +80,11 @@ const router = createBrowserRouter([
       {
         path: "takeexam",
         element: <TakeExam />,
+        // loader: ExamTypeLoader,
+      },
+      {
+        path: "aichat",
+        element: <AiChat />,
         // loader: ExamTypeLoader,
       },
     ],

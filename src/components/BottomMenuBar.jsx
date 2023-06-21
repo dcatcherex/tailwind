@@ -23,7 +23,7 @@ const BottomMenuBar = () => {
           <img className="w-5 h-5" src={examwhite} />
           สร้าง
         </Link>
-        <Link to={"generatequiz"}
+        <Link to={"aichat"}
           className="inline-flex items-center justify-center gap-x-2 text-center px-3 py-4 bg-purple hover:bg-slate-500 flex-1 text-white font-light"
           href=""
         >
