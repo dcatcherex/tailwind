@@ -9,12 +9,12 @@ const BottomMenuBar = () => {
   return (
     <div>
       <div className="fixed w-full bottom-0 box-border flex flex-1 flex-row items-center justify-between border-t-4 border-violet-200 divide-x divide-violet-200">
-        <Link to={"template"}
+        <Link to={"examportal"}
           className="inline-flex items-center justify-center gap-x-2 text-center px-3 py-4 bg-purple hover:bg-slate-500 flex-1 text-white font-light"
           href=""
         >
           <img className="w-4 h-4" src={apps} />
-          รวมสื่อ
+          แบบทดสอบ
         </Link>
         <Link to={"examtype"}
           className="inline-flex items-center justify-center gap-x-2 text-center px-3 py-4 bg-purple hover:bg-slate-500 flex-1 text-white font-light "
@@ -23,7 +23,7 @@ const BottomMenuBar = () => {
           <img className="w-5 h-5" src={examwhite} />
           สร้าง
         </Link>
-        <Link to={"aichat"}
+        <Link to={"template"}
           className="inline-flex items-center justify-center gap-x-2 text-center px-3 py-4 bg-purple hover:bg-slate-500 flex-1 text-white font-light"
           href=""
         >
