@@ -14,6 +14,7 @@ import { Bars3Icon } from "@heroicons/react/20/solid";
 import Buttongroups from "../Buttongroups/Buttongroups";
 import TabsIcons from "../Tabs/Tabsicons";
 import { Link } from "react-router-dom";
+import { Tab } from "@headlessui/react";
 
 const buttontexts = ["1 ข้อ", "5 ข้อ", "10 ข้อ", "20 ข้อ"];
 const levels = [
@@ -49,13 +50,12 @@ const topics = [
   "แรง",
   "แสง",
   "ดวงจันทร์และระบบสุริยะ",
-]
+];
 
 const GenerateQuiz = () => {
   return (
     <>
       <div className="bg-fixed min-h-screen  bg-violet-100 flex max-w-5xl mx-auto flex-col items-center ">
-        
         {/* end of search */}
         <main className="flex w-full flex-col items-center  px-4 mt-8 sm:mt-12">
           <img
@@ -65,9 +65,8 @@ const GenerateQuiz = () => {
           <h1 className="text-center sm:text-6xl text-2xl max-w-[708px] font-medium text-purple mb-8">
             สร้างแบบทดสอบแบบเลือกตอบ
           </h1>
-          
 
-            <TabsIcons />
+          
 
           <div className="flex flex-1 w-full flex-row mt-6 mb-2 space-x-3">
             <img alt="1 icon" src={circle1} className="w-6 h-6" />
@@ -105,7 +104,10 @@ const GenerateQuiz = () => {
           {/* <Combobox2 /> */}
           <Buttongroups text={buttontexts} />
 
-          <Link to="/examlist" className=" text-lg w-full justify-center inline-flex gap-x-1.5 items-center px-4 py-4 bg-dimviolet hover:bg-violet-300 rounded-md text-white font-light tracking-wide mt-8">
+          <Link
+            to="/examlist"
+            className=" text-lg w-full justify-center inline-flex gap-x-1.5 items-center px-4 py-4 bg-dimviolet hover:bg-violet-300 rounded-md text-white font-light tracking-wide mt-8"
+          >
             <img className="w-5 h-5 stroke-white" src={examwhite} />
             สร้างข้อสอบ
           </Link>

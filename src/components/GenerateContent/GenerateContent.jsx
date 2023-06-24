@@ -68,9 +68,7 @@ const GenerateContent = () => {
           <h1 className="text-center sm:text-6xl text-4xl max-w-[708px] font-medium text-purple mb-8">
             สร้างแบบทดสอบแบบเลือกตอบ
           </h1>
-          
 
-            <TabsIcons />
 
           <div className="flex flex-1 w-full flex-row mt-6 mb-2 space-x-3">
             <img alt="1 icon" src={circle1} className="w-6 h-6" />

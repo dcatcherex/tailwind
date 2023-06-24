@@ -6,7 +6,7 @@ import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
 
 const AiChat = () => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState("begin");
   const [inputValue, setInputValue] = useState("");
 
   const handleInputChange = (e) => {
@@ -23,10 +23,10 @@ const AiChat = () => {
     console.log(inputValue)
 
     // Add user message
-    setMessages((prevMessages) => [
-      ...prevMessages,
-      { text: inputValue, isUser: true },
-    ]);
+    // setMessages((prevMessages) => [
+    //   ...prevMessages,
+    //   { text: inputValue, isUser: true },
+    // ]);
 
     try {
       // Call API or perform chatbot logic here
@@ -43,8 +43,9 @@ const AiChat = () => {
         throw data.error || new Error(`Request failed with status ${response.status}`)
       }
 
-    //   setMessages(data.result)
+      setMessages(data.result)
       
+      console.log(messages);
 
     } catch (error) {
       console.log(error);
@@ -57,7 +58,7 @@ const AiChat = () => {
   return (
     <div className="h-[85vh] flex flex-col justify-between">
       <div className="flex-1 p-4 overflow-y-scroll scrollbar-hidden">
-        {messages.map((message, index) => (
+        {/* {messages.map((message, index) => (
           <div
             key={index}
             className={`p-2 rounded-lg ${
@@ -66,7 +67,8 @@ const AiChat = () => {
           >
             <img src={bot} alt="Bot Avatar" className="w-12 h-12" /> {message.text}
           </div>
-        ))}
+        ))} */}
+        <div>{messages}</div>
       </div>
 
       <form onSubmit={handleFormSubmit} className="flex p-4 bg-purple-900">
