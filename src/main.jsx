@@ -4,6 +4,8 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+// import { rootLoader } from "./routes/root";
+
 
 import Root from "./routes/root";
 import ExamType from './components/ExamType/ExamType';
@@ -39,7 +41,7 @@ const router = createBrowserRouter([
     element: <Root />,
     // loader: rootLoader,
     children: [
-      // { index: true, element: <Index /> },
+      { index: true, element: <GenerateQuiz /> },
       {
         path: "examtype",
         element: <ExamType />,
