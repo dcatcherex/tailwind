@@ -22,7 +22,6 @@ import ExamResult from "./components/Exam/ExamResult";
 import TakeExam from "./components/Exam/TakeExam";
 
 import AiChat from "./components/AiChat/AiChat";
-import AiCompletion from "./components/AiChat/AiCompletion";
 
 
 
@@ -91,11 +90,7 @@ const router = createBrowserRouter([
         element: <AiChat />,
         // loader: ExamTypeLoader,
       },
-      {
-        path: "aicompletion",
-        element: <AiCompletion />,
-        // loader: ExamTypeLoader,
-      },
+      
     ],
   },
 ]);

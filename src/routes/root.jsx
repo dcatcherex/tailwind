@@ -9,8 +9,8 @@ const root = () => {
   return (
     <div>
       
-      <div className=''>
-        <TopMenuBar />
+      <div>
+        <TopMenuBar  />
       </div>
       <div className='bg-violet-100 pt-16'>
         <Outlet />

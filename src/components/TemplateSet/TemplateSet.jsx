@@ -30,34 +30,36 @@ const TemplateSet = ({jsonData}) => {
         <button className="btn px-4 py-2 min-w-[70px] rounded-full" onClick={()=> setFilterValue("education")}>Education</button>
       </div>
       
-      <main className=" bg-violet-100 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 pt-2 mt-2 px-4 ">
+      <main className=" bg-violet-100 grid grid-cols-2 grid- sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 pt-2 mt-2 px-4 ">
         {filteredData.map(({ id, title, des, view }) => (
           <div
             key={id}
-            className="flex flex-col gap-x-2 px-2 py-1  bg-white rounded-md shadow-md hover:ring-2 hover:cursor-pointer hover:ring-violet-500 active:bg-violet-100"
+            className="gap-x-2 px-2 py-1  bg-white rounded-md shadow-md hover:ring-2 hover:cursor-pointer hover:ring-violet-500 active:bg-violet-100"
           >
-            <div>
-              <div className="relative group-hover:visible ">
-                <button className="hover:bg-red-500 absolute top-0 right-0 rounded-full bg-white p-2">
-                  <img className="w-3 h-3" src={viewicon} alt="" />
-                </button>
+              <div className="">
+                {/* <div className="relative group-hover:visible">
+                  <button className="hover:bg-red-500 absolute top-0 right-0 rounded-full bg-white p-2">
+                    <img className="w-3 h-3" src={viewicon} alt="" />
+                  </button>
+                </div> */}
+                <h2 className="text-lg font-semibold text-darkviolet">{title}</h2>
+                <p className="line-clamp-2 text-sm font-body text-gray-500 mt-1">
+                  {des}
+                </p>
               </div>
-              <h2 className="text-lg font-semibold text-darkviolet">{title}</h2>
-              <p className="line-clamp-2 text-sm font-body text-gray-500 mt-1">
-                {des}
-              </p>
-            </div>
-            <div className="flex flex-row justify-between gap-x-2 mt-3">
-              <div className="flex gap-x-2 items-center">
-                <img className="w-3 h-3" src={viewicon} />
-                <p className="text-xs font-light text-gray-400">{view}</p>
+              <div className="">
+                <div className="flex flex-row justify-between gap-x-2 mt-3">
+                  <div className="flex gap-x-2 items-center">
+                    <img className="w-3 h-3" src={viewicon} />
+                    <p className="text-xs font-light text-gray-400">{view}</p>
+                  </div>
+                  <div className="flex gap-x-2 items-center">
+                    <button className="hover:bg-slate-500">
+                      <img className="w-3 h-3" src={link} />
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div className="flex gap-x-2 items-center">
-                <button className="hover:bg-slate-500">
-                  <img className="w-3 h-3" src={link} />
-                </button>
-              </div>
-            </div>
           </div>
         ))}
       </main>

@@ -14,6 +14,21 @@
         text-sm
         rounded-md
     }
+    .checkr {
+      @apply
+      border-2
+      border-rose-900
+    }
+    .checkb {
+      @apply
+      border-2
+      border-blue-900
+    }
+    .checkg {
+      @apply
+      border-2
+      border-green-900
+    }
 
     .tabs {
         @apply
