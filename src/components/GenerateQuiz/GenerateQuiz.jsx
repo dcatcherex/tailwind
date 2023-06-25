@@ -94,8 +94,8 @@ const GenerateQuiz = () => {
             แบบทดสอบแบบเลือกตอบ (Multiple choice)
           </h1>
           <div className="max-w-[1280px] mt-4 mb-4 ">
-            <p className="text-slate-700 mb-2 font-body "><span className="bg-lime-300 px-2 rounded-md font-semibold">ข้อดี:</span>วัดพฤติกรรมพุทธิพิสัยได้ครบทั้ง 6 ขั้น ตรวจง่าย เขียนข้อสอบได้คลุมเนื้อหา</p>
-            <p className="text-slate-700 font-body"><span className="bg-red-300 px-2 rounded-md font-semibold">จุดสังเกตุ:</span>สร้างยากโดยเฉพาะคำถามที่วัดพฤติกรรมขั้นสูง ใช้เวลาในการเขียนข้อสอบนาน วัดการแสดงวิธีทำ ทักษะการเขียน การวิพากษ์วิจารณ์ การอภิปรายแสดงความคิดเห็นไม่ได้</p>
+            <p className="text-slate-700 mb-2 font-body mx-4 "><span className="bg-lime-300 px-2 rounded-md font-semibold">ข้อดี:</span>วัดพฤติกรรมพุทธิพิสัยได้ครบทั้ง 6 ขั้น ตรวจง่าย เขียนข้อสอบได้คลุมเนื้อหา</p>
+            <p className="text-slate-700 font-body mx-4"><span className="bg-red-300 px-2 rounded-md font-semibold">จุดสังเกตุ:</span>สร้างยากโดยเฉพาะคำถามที่วัดพฤติกรรมขั้นสูง ใช้เวลาในการเขียนข้อสอบนาน วัดการแสดงวิธีทำ ทักษะการเขียน การวิพากษ์วิจารณ์ การอภิปรายแสดงความคิดเห็นไม่ได้</p>
           </div>
           <div className="border-b-2 border-slate-500"> </div>
           {/* {displayResult?<div id="bar" className="mb-6  w-full">
@@ -108,9 +108,9 @@ const GenerateQuiz = () => {
           
 
           {/* react hook form */}
-          <div className=" flex flex-col sm:flex-row-reverse justify-between  gap-4 w-full mt-4 ">
+          <div className=" flex flex-col sm:flex-row-reverse justify-between  gap-4 w-full mt-2 ">
             
-            <form onSubmit={handleSubmit(onSubmit)} className=" px-4 sm:border-2 border-dimviolet sm:p-4 sm:rounded-lg sm:shadow-lg">
+            <form onSubmit={handleSubmit(onSubmit)} className=" px-4 pb-8 sm:border-2 border-dimviolet sm:p-4 sm:rounded-lg sm:shadow-lg text-lg">
               <div className="mb-3">
                 <label htmlFor="grade">เลือกระดับชั้น:</label>
                 <select
