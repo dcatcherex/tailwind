@@ -4,6 +4,7 @@ import exam from "../../assets/images/exam.svg";
 import quiz from "../../assets/images/quiz.png";
 import ExamType from "../ExamType/ExamType";
 import { useState } from "react";
+import {motion} from "framer-motion"
 
 const TemplateSet = ({jsonData}) => {
   const [filterValue, setFilterValue] = useState("all");
@@ -20,6 +21,11 @@ const TemplateSet = ({jsonData}) => {
       ? jsonData
       : jsonData.filter((item) => item.type === filterValue);
 
+      const variants = {
+          visible: {opacity: 1, y: 0 },
+          hidden: {opacity: 0, y: 100}
+      }
+
   return (
     <div className="min-h-screen">
       {/* button filter */}
@@ -32,9 +38,10 @@ const TemplateSet = ({jsonData}) => {
       
       <main className=" bg-violet-100 grid grid-cols-2 grid- sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 pt-2 mt-2 px-4 ">
         {filteredData.map(({ id, title, des, view }) => (
-          <div
+          <motion.div
             key={id}
-            className="gap-x-2 px-2 py-1  bg-white rounded-md shadow-md hover:ring-2 hover:cursor-pointer hover:ring-violet-500 active:bg-violet-100"
+            className="gap-x-2 px-2 py-1  bg-white rounded-md shadow-md hover:ring-2 hover:cursor-pointer hover:ring-violet-500 active:bg-violet-100" initial="hidden"
+            animate="visible" variants={variants}
           >
               <div className="">
                 {/* <div className="relative group-hover:visible">
@@ -60,7 +67,7 @@ const TemplateSet = ({jsonData}) => {
                   </div>
                 </div>
               </div>
-          </div>
+          </motion.div>
         ))}
       </main>
 

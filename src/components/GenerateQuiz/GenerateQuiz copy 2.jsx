@@ -4,14 +4,23 @@ import SampleQuestion from "../../assets/datas/samplequestions.json";
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { json } from "react-router-dom";
 
+import ExamList from "../ExamList/ExamList";
 
 import IndicatorBar from "../IndicatorBar";
-
+import { Link } from "react-router-dom";
+import { StarIcon } from "@heroicons/react/20/solid";
+import ProgressBar from "../ProgressBar";
+import { ArrowDownIcon } from "@heroicons/react/20/solid";
+import { ArrowUpIcon } from "@heroicons/react/20/solid";
+import { PrinterIcon } from "@heroicons/react/24/outline";
+import { BookOpenIcon } from "@heroicons/react/24/outline";
+import { WifiIcon } from "@heroicons/react/24/outline";
 
 const GenerateQuiz = () => {
   const { register, handleSubmit } = useForm();
-  const [jsonData, setJsondata] = useState([]);
+  const [jsondata, setJsondata] = useState([]);
   const [displayResult, setDisplayResult] = useState(0);
   const number_quiz_display = 6;
 
@@ -36,9 +45,6 @@ const GenerateQuiz = () => {
       .then((response) => {
         // Handle the response if needed
         console.log(response.data);
-        setJsondata(response.data);
-        setDisplayResult(1);
-      
       })
       .catch((error) => {
         // Handle any errors that occur during the request
@@ -46,31 +52,32 @@ const GenerateQuiz = () => {
 
         // Load sample questions instead of making a POST request
         setJsondata(SampleQuestion);
-        console.log(jsonData);
+        console.log(jsondata);
         setDisplayResult(1);
+        console.log(displayResult);
       });
   };
 
-  // const knowledgeTotal = jsonData.reduce((total, { bloom_level }) => {
-  //   if (bloom_level === "Remember") {
-  //     return total + 1;
-  //   }
-  //   return total;
-  // }, 0);
+  const knowledgeTotal = jsondata.reduce((total, { indicator }) => {
+    if (indicator === "knowledge") {
+      return total + 1;
+    }
+    return total;
+  }, 0);
 
-  // const processTotal = jsonData.reduce((total, { bloom_level }) => {
-  //   if (bloom_level === "Understand") {
-  //     return total + 1;
-  //   }
-  //   return total;
-  // }, 0);
+  const processTotal = jsondata.reduce((total, { indicator }) => {
+    if (indicator === "process") {
+      return total + 1;
+    }
+    return total;
+  }, 0);
 
-  // const attributeTotal = jsonData.reduce((total, { bloom_level }) => {
-  //   if (bloom_level === "attribute") {
-  //     return total + 1;
-  //   }
-  //   return total;
-  // }, 0);
+  const attributeTotal = jsondata.reduce((total, { indicator }) => {
+    if (indicator === "attribute") {
+      return total + 1;
+    }
+    return total;
+  }, 0);
 
   return (
     <>
@@ -84,13 +91,13 @@ const GenerateQuiz = () => {
           <h1 className="text-center sm:text-6xl text-2xl max-w-[708px] font-medium text-purple mb-8">
             สร้างแบบทดสอบแบบเลือกตอบ
           </h1>
-          {/* {displayResult?<div id="bar" className="mb-6  w-full">
+          {displayResult?<div id="bar" className="mb-6  w-full">
                     <IndicatorBar
                       knowledge={knowledgeTotal}
                       process={processTotal}
                       attribute={attributeTotal}
                     />
-                  </div>:""} */}
+                  </div>:""}
           
 
           {/* react hook form */}
@@ -103,10 +110,10 @@ const GenerateQuiz = () => {
                   {...register("grade")}
                   className=" w-full  rounded-sm hover:ring-2 border-0 border-dimviolet px-4 py-2"
                 >
-                  <option value="4">ประถมศึกษาปีที่ 4</option>
                   <option value="1">ประถมศึกษาปีที่ 1</option>
                   <option value="2">ประถมศึกษาปีที่ 2</option>
                   <option value="3">ประถมศึกษาปีที่ 3</option>
+                  <option value="4">ประถมศึกษาปีที่ 4</option>
                   <option value="5">ประถมศึกษาปีที่ 5</option>
                   <option value="6">ประถมศึกษาปีที่ 6</option>
                 </select>
@@ -169,29 +176,33 @@ const GenerateQuiz = () => {
                   {/* ข้อสอบ */}
                   
 
-                  {Object.entries(jsonData).map(
-                    ([key, quiz]) => {
-                      const { choices, correct_answer, question ,indicator,bloom_level} = quiz
-                      return (
+                  {jsondata.map(
+                    ({
+                      id,
+                      question,
+                      options,
+                      answer,
+                      indicator,
+                      difficulty,
+                      right,
+                      wrong,
+                      wrong_answer,
+                    }) => (
                       <div
-                        key={key}
-                        className={`transition-opacity duration-400 ease-in opacity-100 shadow-md p-4 font-body font-medium sm:rounded-lg item ${
-                          bloom_level === "Remember"
+                        key={id}
+                        className={`shadow-md p-4 font-body font-medium sm:rounded-lg item ${
+                          indicator === "knowledge"
                             ? "bg-lime-200"
-                            : indicator === "Understand"
+                            : indicator === "process"
                             ? "bg-yellow-200"
                             : "bg-orange-200"
                         }`}
                       >
                         <h3 className=" font-medium list-decimal">
-                          {key}.{question}
+                          {id}.{question}
                         </h3>
-                        <h3 className=" font-medium list-decimal">
-                          ตัวชี้วัด: {indicator}
-                        </h3>
-                        
                         <div className="flex gap-x-2 font-light font-base font-sans">
-                          {/* {difficulty === 1 && (
+                          {difficulty === 1 && (
                             <>
                               <StarIcon className="w-4 h-4 text-red-500" />
                             </>
@@ -207,17 +218,17 @@ const GenerateQuiz = () => {
                               <StarIcon className="w-4 h-4 text-red-500" />
                               <StarIcon className="w-4 h-4 -ml-2 text-red-500" />
                             </>
-                          )} */}
+                          )}
                         </div>
                         <ol className="list-decimal my-2 pl-8">
-                          {choices.map((option) => (
+                          {options.map((option) => (
                             <li key={option} className="font-light py-0.5 ">
                               <span
                                 className={`px-1 ${
-                                  option === correct_answer
+                                  option === answer
                                     ? "border-green-500 border-b-2"
-                                    // : option === wrong_answer
-                                    // ? "border-red-500 border-b-2"
+                                    : option === wrong_answer
+                                    ? "border-red-500 border-b-2"
                                     : ""
                                 }`}
                               >
@@ -226,7 +237,7 @@ const GenerateQuiz = () => {
                             </li>
                           ))}
                         </ol>
-                        {/* <div className="relative ">
+                        <div className="relative ">
                           {right[1] - right[0] > 0 ? (
                             <ArrowUpIcon className="absolute bottom-6 right-6 w-6 h-6 text-green-700 object-right" />
                           ) : right[1] - right[0] < 0 ? (
@@ -240,9 +251,9 @@ const GenerateQuiz = () => {
                             incorrect={wrong[0]}
                             total={right[0] + wrong[0]}
                           />
-                        </div> */}
-                      </div>)
-                    }
+                        </div>
+                      </div>
+                    )
                   )}
                 </div>
               ) : (

@@ -1,0 +1,62 @@
+{
+  "1": {
+    "question": "What is the function of roots in plants?",
+    "choices": [
+      "Anchoring the plant in the ground and absorbing water and nutrients",
+      "Transporting water and vital nutrients to different parts of the plant",
+      "Converting sunlight into food for the plant",
+      "Playing a vital role in the reproduction of flowering plants"
+    ],
+    "indicator": "S 1.2-4/1",
+    "bloom_level": "Remember",
+    "correct_answer": "Anchoring the plant in the ground and absorbing water and nutrients"
+  },
+  "2": {
+    "question": "What is the function of stems in plants?",
+    "choices": [
+      "Anchoring the plant in the ground and absorbing water and nutrients",
+      "Transporting water and vital nutrients to different parts of the plant",
+      "Converting sunlight into food for the plant",
+      "Playing a vital role in the reproduction of flowering plants"
+    ],
+    "indicator": "S 1.2-4/1",
+    "bloom_level": "Remember",
+    "correct_answer": "Transporting water and vital nutrients to different parts of the plant"
+  },
+  "3": {
+    "question": "What is the function of leaves in plants?",
+    "choices": [
+      "Anchoring the plant in the ground and absorbing water and nutrients",
+      "Transporting water and vital nutrients to different parts of the plant",
+      "Converting sunlight into food for the plant",
+      "Playing a vital role in the reproduction of flowering plants"
+    ],
+    "indicator": "S 1.2-4/1",
+    "bloom_level": "Remember",
+    "correct_answer": "Converting sunlight into food for the plant"
+  },
+  "4": {
+    "question": "What is the function of flowers in plants?",
+    "choices": [
+      "Anchoring the plant in the ground and absorbing water and nutrients",
+      "Transporting water and vital nutrients to different parts of the plant",
+      "Converting sunlight into food for the plant",
+      "Playing a vital role in the reproduction of flowering plants"
+    ],
+    "indicator": "S 1.2-4/1",
+    "bloom_level": "Remember",
+    "correct_answer": "Playing a vital role in the reproduction of flowering plants"
+  },
+  "5": {
+    "question": "How are plants classified into flowering and non-flowering plants?",
+    "choices": [
+      "Based on the presence or absence of flowers",
+      "Based on their ability to convert sunlight into food",
+      "Based on their role in plant reproduction",
+      "Based on their adaptations for survival"
+    ],
+    "indicator": "S 1.3-4/2",
+    "bloom_level": "Understand",
+    "correct_answer": "Based on the presence or absence of flowers"
+  }
+}
