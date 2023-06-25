@@ -1,7 +1,11 @@
 import teacherpic from "../../assets/images/teacher.svg";
 import SampleQuestion from "../../assets/datas/samplequestions.json";
+import { ArrowPathIcon } from "@heroicons/react/24/outline";
+import { StarIcon } from "@heroicons/react/20/solid";
+import { PencilSquareIcon } from "@heroicons/react/20/solid";
 
-import { useForm } from "react-hook-form";
+
+import { set, useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -13,6 +17,8 @@ const GenerateQuiz = () => {
   const { register, handleSubmit } = useForm();
   const [jsonData, setJsondata] = useState([]);
   const [displayResult, setDisplayResult] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+
   const number_quiz_display = 6;
 
   const onSubmit = (data) => {
@@ -27,6 +33,8 @@ const GenerateQuiz = () => {
 
     console.log(data);
     console.log(quizgenerate);
+
+    setIsLoading(true)
 
     axios
       .post(
@@ -48,7 +56,11 @@ const GenerateQuiz = () => {
         setJsondata(SampleQuestion);
         console.log(jsonData);
         setDisplayResult(1);
-      });
+      })
+      .finally(() => {
+        setIsLoading(false);
+      
+      })
   };
 
   // const knowledgeTotal = jsonData.reduce((total, { bloom_level }) => {
@@ -76,14 +88,16 @@ const GenerateQuiz = () => {
     <>
       <div className="bg-fixed min-h-screen  bg-violet-100 flex max-w-[1280px] mx-auto flex-col items-center ">
         {/* end of search */}
-        <main className="flex w-full flex-col items-center  px-4 mt-8 sm:mt-12">
-          <img
-            className="hidden sm:visible max-w-[300px] sm:max-w-[500px]"
-            src={teacherpic}
-          />
-          <h1 className="text-center sm:text-6xl text-2xl max-w-[708px] font-medium text-purple mb-8">
-            สร้างแบบทดสอบแบบเลือกตอบ
+        <main className="flex w-full flex-col items-center  px-4 mt-2 sm:mt-8">
+        
+          <h1 className="w-full text-center sm:text-left sm:text-4xl text-2xl max-w-[1280px] font-medium text-purple mb-4">
+            แบบทดสอบแบบเลือกตอบ (Multiple choice)
           </h1>
+          <div className="max-w-[1280px] mt-4 mb-4 ">
+            <p className="text-slate-700 mb-2 font-body "><span className="bg-lime-300 px-2 rounded-md font-semibold">ข้อดี:</span>วัดพฤติกรรมพุทธิพิสัยได้ครบทั้ง 6 ขั้น ตรวจง่าย เขียนข้อสอบได้คลุมเนื้อหา</p>
+            <p className="text-slate-700 font-body"><span className="bg-red-300 px-2 rounded-md font-semibold">จุดสังเกตุ:</span>สร้างยากโดยเฉพาะคำถามที่วัดพฤติกรรมขั้นสูง ใช้เวลาในการเขียนข้อสอบนาน วัดการแสดงวิธีทำ ทักษะการเขียน การวิพากษ์วิจารณ์ การอภิปรายแสดงความคิดเห็นไม่ได้</p>
+          </div>
+          <div className="border-b-2 border-slate-500"> </div>
           {/* {displayResult?<div id="bar" className="mb-6  w-full">
                     <IndicatorBar
                       knowledge={knowledgeTotal}
@@ -94,9 +108,9 @@ const GenerateQuiz = () => {
           
 
           {/* react hook form */}
-          <div className=" flex flex-col sm:flex-row-reverse justify-between  gap-4 w-full ">
+          <div className=" flex flex-col sm:flex-row-reverse justify-between  gap-4 w-full mt-4 ">
             
-            <form onSubmit={handleSubmit(onSubmit)} className=" px-4 ">
+            <form onSubmit={handleSubmit(onSubmit)} className=" px-4 sm:border-2 border-dimviolet sm:p-4 sm:rounded-lg sm:shadow-lg">
               <div className="mb-3">
                 <label htmlFor="grade">เลือกระดับชั้น:</label>
                 <select
@@ -154,10 +168,11 @@ const GenerateQuiz = () => {
                   <option value="10">10</option>
                 </select>
               </div>
-              <input
+              <button
                 type="submit"
-                className="btn bg-dimviolet w-full cursor-pointer"
-              />
+                disabled={isLoading}
+                className="btn bg-dimviolet w-full cursor-pointer text-lg">{isLoading?'กำลังดำเนินการ...':'สร้างแบบทดสอบ'}</button>
+              
             </form>
             {/* Conditional rendering */}
             <div className="">
@@ -175,7 +190,7 @@ const GenerateQuiz = () => {
                       return (
                       <div
                         key={key}
-                        className={`transition-opacity duration-400 ease-in opacity-100 shadow-md p-4 font-body font-medium sm:rounded-lg item ${
+                        className={`  opacity-100 shadow-md p-4 font-body font-medium sm:rounded-lg item hover:rign-dimviolet hover:ring-2 hover:ring-dimviolet hover:scale-105 transition-transform duration-150 ${
                           bloom_level === "Remember"
                             ? "bg-lime-200"
                             : indicator === "Understand"
@@ -183,14 +198,17 @@ const GenerateQuiz = () => {
                             : "bg-orange-200"
                         }`}
                       >
-                        <h3 className=" font-medium list-decimal">
-                          {key}.{question}
+                        <h3 className=" font-medium list-decimal mb-2">
+                          <span className="bg-purple text-white rounded-full px-2 py-1 mr-2 ">{key}.</span>{question}
                         </h3>
-                        <h3 className=" font-medium list-decimal">
+                        <h3 className=" font-light text-md list-decimal font-sans text-slate-500  bg-gray-100 px-2 rounded-full">
                           ตัวชี้วัด: {indicator}
                         </h3>
                         
                         <div className="flex gap-x-2 font-light font-base font-sans">
+                        <>
+                              <StarIcon className="w-4 h-4 text-purple" />
+                            </>
                           {/* {difficulty === 1 && (
                             <>
                               <StarIcon className="w-4 h-4 text-red-500" />
@@ -209,6 +227,7 @@ const GenerateQuiz = () => {
                             </>
                           )} */}
                         </div>
+
                         <ol className="list-decimal my-2 pl-8">
                           {choices.map((option) => (
                             <li key={option} className="font-light py-0.5 ">
@@ -226,6 +245,10 @@ const GenerateQuiz = () => {
                             </li>
                           ))}
                         </ol>
+                        <div className="hover:text-dimviolet text-transparent p-2 cursor-pointer">
+                          <PencilSquareIcon className="relative bottom-1 left-[90%] w-6 h-6  " />
+                        </div>
+
                         {/* <div className="relative ">
                           {right[1] - right[0] > 0 ? (
                             <ArrowUpIcon className="absolute bottom-6 right-6 w-6 h-6 text-green-700 object-right" />
@@ -244,6 +267,7 @@ const GenerateQuiz = () => {
                       </div>)
                     }
                   )}
+                  
                 </div>
               ) : (
                 // <>
@@ -259,8 +283,13 @@ const GenerateQuiz = () => {
                 //   })}
                 // </>
                 // Render a message while loading sample questions
-                <p>I'm Lucky</p>
+              ""
               )}
+               {/* display loading */}
+               {isLoading?<div className="flex justify-center items-center ">
+                 <ArrowPathIcon className="w-10 h-10 animate-spin text-dimviolet"  />
+               </div>:""}
+               
             </div>
           </div>
 
