@@ -10,6 +10,8 @@ import axios from 'axios'
 
 const GenerateQuiz = () => {
   const { register, handleSubmit } = useForm();
+  const { jsondata, setJsondata } = useState([]);
+
   const onSubmit = (data) => {
     const { grade, subject, topic, part, num } = data;
     const quizgenerate = {
@@ -50,10 +52,10 @@ const GenerateQuiz = () => {
 
           {/* react hook form */}
 
-          <form onSubmit={handleSubmit(onSubmit)} >
-            <div>
+          <form onSubmit={handleSubmit(onSubmit)} className=" ">
+            <div className="mb-3">
               <label htmlFor="grade">เลือกระดับชั้น:</label>
-              <select {...register("grade")}>
+              <select {...register("grade")}className="w-full rounded-sm hover:ring-2 border-0 border-dimviolet px-4 py-2">
                 <option value="1">ประถมศึกษาปีที่ 1</option>
                 <option value="2">ประถมศึกษาปีที่ 2</option>
                 <option value="3">ประถมศึกษาปีที่ 3</option>
@@ -63,41 +65,41 @@ const GenerateQuiz = () => {
               </select>
             </div>
 
-            <div>
+            <div className="mb-3">
               <label htmlFor="subject">เลือกกลุ่มสาระ:</label>
-              <select {...register("subject")}>
+              <select {...register("subject")} className="w-full rounded-sm hover:ring-2 border-0 border-dimviolet px-4 py-2">
                 <option value="S">วิทยาศาสตร์</option>
                 <option value="M">คณิตศาสตร์</option>
                 <option value="E">ภาษาอังกฤษ</option>
               </select>
             </div>
 
-            <div>
+            <div className="mb-3">
               <label htmlFor="part">เลือกภาคเรียน:</label>
-              <select {...register("part")}>
+              <select {...register("part")} className="w-full rounded-sm hover:ring-2 border-0 border-dimviolet px-4 py-2">
                 <option value="1">ภาคเรียนที่ 1</option>
                 <option value="2">ภาคเรียนที่ 2</option>
               </select>
             </div>
 
-            <div>
+            <div className="mb-3">
               <label htmlFor="topic">เลือกหัวข้อ:</label>
-              <select {...register("topic")}>
+              <select {...register("topic")} className="w-full rounded-sm hover:ring-2 border-0 border-dimviolet px-4 py-2">
                 <option value="สิ่งต่างๆรอบตัว">สิ่งต่าง ๆ รอบตัว</option>
                 <option value="สิ่งมีชีวิต">สิ่งมีชีวิต</option>
                 <option value="แรงและพลังงาน">แรงและพลังงาน</option>
               </select>
             </div>
 
-            <div>
+            <div className="mb-3">
               <label htmlFor="num">เลือกจำนวนข้อ:</label>
-              <select {...register("num")}>
+              <select {...register("num")} className="w-full rounded-sm hover:ring-2 border-0 border-dimviolet px-4 py-2">
                 <option value="3">3</option>
                 <option value="5">5</option>
                 <option value="10">10</option>
               </select>
             </div>
-            <input type="submit" className="btn" />
+            <input type="submit" className="btn bg-dimviolet w-full cursor-pointer" />
 
           </form>
 
