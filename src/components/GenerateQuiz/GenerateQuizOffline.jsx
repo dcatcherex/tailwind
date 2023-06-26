@@ -214,14 +214,14 @@ const GenerateQuiz = () => {
 
                   {Object.entries(jsonData).map(
                     ([key, quiz]) => {
-                      const { choices, correct_answer, question ,indicator,bloom_taxonomy} = quiz
+                      const { choices, correct_answer, question ,indicator,bloom_level} = quiz
                       return (
                       <div
                         key={key}
                         className={`  opacity-100 shadow-md p-4 font-body font-medium sm:rounded-lg item hover:rign-dimviolet hover:ring-2 hover:ring-dimviolet hover:scale-105 transition-transform duration-150 ${
-                          bloom_taxonomy === "Remembering"
+                          bloom_level === "Remember"
                             ? "bg-lime-200"
-                            : indicator === "Understanding"
+                            : indicator === "Understand"
                             ? "bg-yellow-200"
                             : "bg-orange-200"
                         }`}

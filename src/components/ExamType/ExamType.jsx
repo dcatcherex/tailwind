@@ -6,6 +6,8 @@ import matchquiz from '../../assets/images/quiztypes/matchquiz.png'
 import mixquiz from '../../assets/images/quiztypes/mixquiz.png'
 import writequiz from '../../assets/images/quiztypes/writequiz.png'
 
+import {motion} from 'framer-motion'
+
 import { Link } from 'react-router-dom'
 
 const questionTypes = [
@@ -54,21 +56,26 @@ const questionTypes = [
   }
   ]
 
+  const variants = {
+    visible: {opacity: 1, y: 0 },
+    hidden: {opacity: 0, y: 100}
+}
+
 const ExamType = () => {
   return (
-    <div className="">
-        <Link to={""}></Link>
+    <motion.div className="sm:max-w-[500px] mx-auto py-4 sm:py-8 min-h-screen " initial="hidden"
+    animate="visible" variants={variants}>
         {questionTypes.map ((type) => (
-            <Link to={type.link} key={type.id} className=" flex bg-white w-[100%-100px] mx-4 mt-2 rounded-md border-2 shadow-sm hover:ring-2 hover:cursor-pointer hover:ring-violet-500 active:bg-violet-100">
+            <Link to={type.link} key={type.id} className=" flex bg-white w-[100%-100px] my-2 mx-4  rounded-md border-2 shadow-sm hover:ring-2 hover:cursor-pointer hover:ring-violet-500 active:bg-violet-100" >
                 <img className="w-[100px] h-[100px] rounded-l-md border-r-2" src={type.image} />
 
                 <div className="pt-2 px-2">
-                  <h2 className="text-lg font-medium">{type.type}</h2>
+                  <h2 className="text-lg font-medium text-darkviolet">{type.type}</h2>
                   <p className=" line-clamp-2 text-base font-body font-light text-gray-600 mt-1 s">{type.good}</p>
                 </div>
             </Link>
             ))}
-    </div>
+    </motion.div>
   )
 }
 

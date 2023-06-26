@@ -10,7 +10,7 @@ import writingicon from "../../assets/images/icons/writing.svg";
 import quiz from "../../assets/images/quiz.png";
 import ExamType from "../ExamType/ExamType";
 import { useState } from "react";
-import {motion} from "framer-motion"
+import {motion, AnimatePresence} from "framer-motion"
 
 const TemplateSet = ({jsonData}) => {
   const [filterValue, setFilterValue] = useState("all");
@@ -42,11 +42,11 @@ const TemplateSet = ({jsonData}) => {
         <button className=" px-4 py-2 min-w-[70px] hover:scale-125 transition-transform text-darkviolet" onClick={()=> setFilterValue("education")}><img src={educationicon} className="w-20 h-20" alt="all icon"/>Education</button>
       </div>
       
-      <main className=" max-w-[1280px] mx-auto bg-violet-100 grid grid-cols-2 grid- sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 pt-2 mt-2 px-4 ">
+      <main className=" max-w-[1280px] mx-auto bg-violet-100 grid grid-cols-2 grid- sm:grid-cols-3 md:grid-cols-4  gap-4 pt-2 mt-2 px-4 ">
         {filteredData.map(({ id, title, des, view }) => (
           <motion.div
             key={id}
-            className="gap-x-2 px-2 py-1  bg-white rounded-md shadow-md hover:ring-2 hover:cursor-pointer hover:ring-violet-500 active:bg-violet-100 " initial="hidden"
+            className=" gap-x-2 px-2 py-1  bg-white rounded-md shadow-md hover:ring-2 hover:cursor-pointer hover:ring-violet-500 active:bg-violet-100 " initial="hidden"
             animate="visible" variants={variants}
           >
               <div className="">

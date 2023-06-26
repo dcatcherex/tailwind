@@ -1,4 +1,4 @@
-// import data from "../../assets/datas/samplequestions.json";
+import data from "../../assets/datas/samplequestions.json";
 import IndicatorBar from "../IndicatorBar";
 import { Link } from "react-router-dom";
 import ExamHead from "../../components/Exam/ExamHead";
@@ -10,7 +10,7 @@ import {PrinterIcon} from "@heroicons/react/24/outline";
 import {BookOpenIcon} from "@heroicons/react/24/outline";
 import {WifiIcon} from "@heroicons/react/24/outline";
 
-const ExamList = (data) => {
+const ExamList = () => {
   const knowledgeTotal = data.reduce((total, { indicator }) => {
     if (indicator === "knowledge") {
       return total + 1;
