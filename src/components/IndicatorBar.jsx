@@ -9,13 +9,13 @@ const IndicatorBar = ({ knowledge, process, attribute }) => {
       <div className="flex w-full bg-slate-200 rounded-lg text-center text-sm items-center">
         <div
           className=" bg-lime-300 py-1"
-          style={{ width: `${knowledgeRate}%` }}>(K) {knowledge} |  {knowledgeRate}%</div>
+          style={{ width: `${knowledgeRate}%` }}>(R) {knowledge} |  {knowledgeRate}%</div>
         
         
         <div
           className="bg-yellow-300 py-1"
           style={{ width: `${processRate}%` }}
-        >(P) {process} | {processRate}%</div>
+        >(U) {process} | {processRate}%</div>
         <div
           className="bg-orange-300 py-1"
           style={{ width: `${attributeRate}%` }}
