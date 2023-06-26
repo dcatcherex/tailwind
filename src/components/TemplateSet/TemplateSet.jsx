@@ -36,7 +36,7 @@ const TemplateSet = ({jsonData}) => {
         <button className="btn px-4 py-2 min-w-[70px] rounded-full" onClick={()=> setFilterValue("education")}>Education</button>
       </div>
       
-      <main className=" bg-violet-100 grid grid-cols-2 grid- sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 pt-2 mt-2 px-4 ">
+      <main className=" max-w-[1280px] mx-auto bg-violet-100 grid grid-cols-2 grid- sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 pt-2 mt-2 px-4 ">
         {filteredData.map(({ id, title, des, view }) => (
           <motion.div
             key={id}

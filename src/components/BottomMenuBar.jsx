@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const BottomMenuBar = () => {
   return (
     <div>
-      <div className="fixed w-full bottom-0 box-border flex flex-1 flex-row items-center justify-between border-t-4 border-violet-200 divide-x divide-violet-200">
+      <div className="w-full bottom-0 box-border flex flex-1 flex-row items-center justify-between border-t-4 border-violet-200 divide-x divide-violet-200">
         <Link to={"examportal"}
           className="inline-flex items-center justify-center gap-x-2 text-center px-3 py-4 bg-purple hover:bg-slate-500 flex-1 text-white font-light"
           href=""

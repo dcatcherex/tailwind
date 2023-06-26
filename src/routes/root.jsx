@@ -12,12 +12,13 @@ const root = () => {
       <div>
         <TopMenuBar  />
       </div>
-      <div className='bg-violet-100 pt-16'>
-        <Outlet />
-      </div>
       <div>
         <BottomMenuBar />
       </div>
+      <div className='bg-violet-100 '>
+        <Outlet />
+      </div>
+      
     </div>
   )
 }
