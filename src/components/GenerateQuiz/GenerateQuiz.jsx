@@ -204,7 +204,7 @@ const GenerateQuiz = () => {
             {/* Conditional rendering */}
             <div className={`${displayResult ? 'border-2 border-dashed border-gray-300 rounded-lg ' : ''}`}>
 
-              <IndicatorBar knowledge={2} process={1} attribute={1}/>
+              <IndicatorBar remembering={2} understanding={1} applying={1} analyzing={0} evaluating={0} creating={0}/>
               {displayResult ? (
                 // Render the form
 

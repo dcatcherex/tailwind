@@ -6,7 +6,7 @@
     "answer": "การสังเคราะห์แสง",
     "wrong_answer": "",
     "difficulty": 1,
-    "indicator": "knowledge",
+    "indicator": "Remembering",
     "right": [20,20],
     "wrong": [0,6],
     "explain":
@@ -19,7 +19,7 @@
     "answer": "ราก",
     "wrong_answer": "",
     "difficulty": 1,
-    "indicator": "knowledge",
+    "indicator": "Remembering",
     "right": [20,20],
     "wrong": [0,6],
     "explain":
@@ -32,7 +32,7 @@
     "answer": "ดูดซับแสงอาทิตย์",
     "wrong_answer": "เก็บอาหาร",
     "difficulty": 1,
-    "indicator": "process",
+    "indicator": "Understanding",
     "right": [19,14],
     "wrong": [1,6],
     "explain":
@@ -45,7 +45,7 @@
     "answer": "ลำต้น",
     "wrong_answer": "ใบ",
     "difficulty": 2,
-    "indicator": "knowledge",
+    "indicator": "Analyzing",
     "right": [16,14],
     "wrong": [4,6],
     "explain":
@@ -59,7 +59,7 @@
     "answer": "ใบ",
     "wrong_answer": "ดอก",
     "difficulty" : 1,
-    "indicator": "attribute",
+    "indicator": "Applying",
     "right": [18,14],
     "wrong": [2,6],
     "explain":
@@ -72,7 +72,7 @@
     "answer": "ใบ",
     "wrong_answer": "ราก",
     "difficulty": 1,
-    "indicator": "process",
+    "indicator": "Understanding",
     "right": [20,14],
     "wrong": [0,6],
     "explain":
@@ -90,7 +90,7 @@
     "answer": "ก๊าซคาร์บอนไดออกไซด์",
     "wrong_answer": "ก๊าซไนโตรเจน",
     "difficulty": 2,
-    "indicator": "knowledge",
+    "indicator": "Creating",
     "right": [19,14],
     "wrong": [1,6],
     "explain":
@@ -104,7 +104,7 @@
     "answer": "ใบกลม",
     "wrong_answer": "ใบเลี้ยง",
     "difficulty": 2,
-    "indicator": "attribute",
+    "indicator": "Applying",
     "right": [15,14],
     "wrong": [5,6],
     "explain":
@@ -117,7 +117,7 @@
     "answer": "ใบ",
     "wrong_answer": "ดอก",
     "difficulty": 1,
-    "indicator": "knowledge",
+    "indicator": "Remembering",
     "right": [12,14],
     "wrong": [8,6],
     "explain":
@@ -131,7 +131,7 @@
     "answer": "ลำต้น",
     "wrong_answer": "ใบ",
     "difficulty": 2,
-    "indicator": "process",
+    "indicator": "Understanding",
     "right": [12,14],
     "wrong": [8,6],
     "explain":
@@ -144,7 +144,7 @@
     "answer": "การระบายน้ำ",
     "wrong_answer": "การหายใจ",
     "difficulty": 2,
-    "indicator": "knowledge",
+    "indicator": "Remembering",
     "right": [12,14],
     "wrong": [8,6],
     "explain":
@@ -157,7 +157,7 @@
     "answer": "การหงิกจากแสง",
     "wrong_answer": "การระบายน้ำ",
     "difficulty": 2,
-    "indicator": "process",
+    "indicator": "Understanding",
     "right": [12,14],
     "wrong": [8,6],
     "explain":
@@ -170,7 +170,7 @@
     "answer": "การหงิกจากแสง",
     "wrong_answer": "การดูดซับน้ำ",
     "difficulty": 2,
-    "indicator": "knowledge",
+    "indicator": "Evaluating",
     "right": [12,14],
     "wrong": [8,6],
     "explain":
@@ -183,7 +183,7 @@
     "answer": "ใบเขตรอบบริเวณลำต้น",
     "wrong_answer": "ใบปลายแหลม",
     "difficulty": 2,
-    "indicator": "knowledge",
+    "indicator": "Remembering",
     "right": [12,14],
     "wrong": [8,6],
     "explain":
@@ -196,7 +196,7 @@
     "answer": "ราก",
     "wrong_answer": "ใบ",
     "difficulty": 1,
-    "indicator": "process",
+    "indicator": "Understanding",
     "right": [12,14],
     "wrong": [8,6],
     "explain":
@@ -209,7 +209,7 @@
     "answer": "ใบ",
     "wrong_answer": "ราก",
     "difficulty": 1,
-    "indicator": "knowledge",
+    "indicator": "Remembering",
     "right": [12,14],
     "wrong": [8,6],
     "explain":
@@ -222,7 +222,7 @@
     "answer": "ใบ",
     "wrong_answer": "ลำต้น",
     "difficulty": 1,
-    "indicator": "knowledge",
+    "indicator": "Analyzing",
     "right": [12,14],
     "wrong": [8,6],
     "explain":
@@ -235,7 +235,7 @@
     "answer": "การสังเคราะห์แสง",
     "wrong_answer": "การหายใจ",
     "difficulty": 1,
-    "indicator": "attribute",
+    "indicator": "Applying",
     "right": [12,14],
     "wrong": [8,6],
     "explain":
@@ -248,7 +248,7 @@
     "answer": "คาร์บอนไดออกไซด์",
     "wrong_answer": "ไนโตรเจน",
     "difficulty": 1,
-    "indicator": "knowledge",
+    "indicator": "Remembering",
     "right": [12,14],
     "wrong": [8,6],
     "explain":
@@ -262,7 +262,7 @@
     "answer": "ลำต้น",
     "wrong_answer": "ใบ",
     "difficulty": 1,
-    "indicator": "knowledge",
+    "indicator": "Remembering",
     "right": [12,14],
     "wrong": [8,6],
     "explain":
