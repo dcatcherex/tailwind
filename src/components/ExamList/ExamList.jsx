@@ -2,6 +2,10 @@ import { useState } from "react";
 import { set, useForm } from "react-hook-form";
 
 import data from "../../assets/datas/samplequestions.json";
+import data2 from "../../assets/datas/samplequestions2.json";
+import data3 from "../../assets/datas/samplequestions3.json";
+import studentdata from "../../assets/datas/studentquestions.json";
+
 import IndicatorBar from "../IndicatorBar";
 import { Link } from "react-router-dom";
 import ExamHead from "../../components/Exam/ExamHead";
@@ -23,7 +27,9 @@ import aksornlogo from "../../assets/images/partners/aksorn.png";
 import { motion } from "framer-motion";
 
 const ExamList = () => {
-  const [dataValue, setDataValue] = useState([]);
+  const [dataValue, setDataValue] = useState(data);
+  const [partnerDataValue, setPartnerDataValue] = useState(data2)
+  const [studentDataValue, setStudentDataValue] = useState(studentdata)
 
   const [trueRangeValue, setTrueRangeValue] = useState(0);
   const [aksornRangeValue, setAksornRangeValue] = useState(0);
@@ -43,6 +49,7 @@ const ExamList = () => {
   };
   const handleTrueRangeChange = (e) => {
     setTrueRangeValue(e.target.value);
+    
   };
   const handleAksornRangeChange = (e) => {
     setAksornRangeValue(e.target.value);
@@ -60,42 +67,45 @@ const ExamList = () => {
     setPrivate2RangeValue(e.target.value);
   };
 
-  const rememberingTotal = data.reduce((total, { indicator }) => {
+  const partnerFilteredData = partnerDataValue.slice(0,trueRangeValue)
+  const student1FilteredData = studentDataValue.slice(0,student1RangeValue)
+
+  const rememberingTotal = dataValue.reduce((total, { indicator }) => {
     if (indicator === "Remembering") {
       return total + 1;
     }
     return total;
   }, 0);
 
-  const understandingTotal = data.reduce((total, { indicator }) => {
+  const understandingTotal = dataValue.reduce((total, { indicator }) => {
     if (indicator === "Understanding") {
       return total + 1;
     }
     return total;
   }, 0);
 
-  const applyingTotal = data.reduce((total, { indicator }) => {
+  const applyingTotal = dataValue.reduce((total, { indicator }) => {
     if (indicator === "Applying") {
       return total + 1;
     }
     return total;
   }, 0);
 
-  const analyzingTotal = data.reduce((total, { indicator }) => {
+  const analyzingTotal = dataValue.reduce((total, { indicator }) => {
     if (indicator === "Analyzing") {
       return total + 1;
     }
     return total;
   }, 0);
 
-  const evaluatingTotal = data.reduce((total, { indicator }) => {
+  const evaluatingTotal = dataValue.reduce((total, { indicator }) => {
     if (indicator === "Evaluating") {
       return total + 1;
     }
     return total;
   }, 0);
 
-  const creatingTotal = data.reduce((total, { indicator }) => {
+  const creatingTotal = dataValue.reduce((total, { indicator }) => {
     if (indicator === "Creating") {
       return total + 1;
     }
@@ -175,7 +185,7 @@ const ExamList = () => {
       </div>
 
       {/* ปุ่มสอบ */}
-      <div className="max-w-[1280px] mx-auto p-4 grid grid-cols-2 gap-x-2  ">
+      <div className="max-w-[1400px] mx-auto p-4 grid grid-cols-2 gap-x-2  ">
         <button className="text-base font-light py-4 btn bg-dimviolet inline-flex justify-center gap-x-1.5 items-center ">
           <BookOpenIcon className="w-6 h-6" />
           ให้การบ้าน
@@ -193,26 +203,183 @@ const ExamList = () => {
         {/* recent */}
 
         <div className="hidden sm:block max-w-[1400px] mx-auto  mb-4">
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-4 items-center mx-4">
             <h3>แบบทดสอบที่ใช้มา:</h3>
-            <button className="btn">แบบทดสอบที่ 1</button>
-            <button className="btn">แบบทดสอบที่ 2</button>
-            <button className="btn">แบบทดสอบที่ 3</button>
+            <button className="btn" onClick={()=>(setDataValue(data))}>แบบทดสอบที่ 1</button>
+            <button className="btn" onClick={()=>(setDataValue(data2))}>แบบทดสอบที่ 2</button>
+            <button className="btn" onClick={()=>(setDataValue(data3))}>แบบทดสอบที่ 3</button>
           </div>
         </div>
 
        {/* List */}
   
 
-      <div className=" checkr max-w-[1400px] mx-auto flex">
+      <div className="  max-w-[1400px] mx-auto flex">
         <motion.div
-          className="  mt-4 text-lg grid grid-cols-1 gap-4 sm:grid-cols-2 sm:mx-4 lg:grid-cols-3 lg:mx-4 "
+          className="  mt-4 text-lg grid grid-cols-1 gap-4 sm:grid-cols-2 sm:mx-4 lg:grid-cols-2 lg:mx-4 "
           initial="hidden"
           animate="visible"
           variants={variants}
         >
+          {/* Partners exam */}
+          {trueRangeValue > 0?(<div className=""><div className="font-semibold text-xl">Partner</div>
+          {partnerFilteredData.map(
+            ({
+              id,
+              question,
+              options,
+              answer,
+              indicator,
+              difficulty,
+              right,
+              wrong,
+              wrong_answer,
+            }) => (
+              <div
+                key={id}
+                className="shadow-md bg-white p-4 font-body font-medium sm:rounded-lg mb-4 mt-2"
+                // className={`shadow-md p-4 font-body font-medium sm:rounded-lg item ${
+                //   indicator === "Remembering"
+                //     ? "bg-lime-200"
+                //     : indicator === "Understanding"
+                //     ? "bg-yellow-200"
+                //     : indicator === "Applying"
+                //     ? "bg-orange-200"
+                //     : indicator === "Analyzing"
+                //     ? "bg-sky-300"
+                //     : indicator === "Evaluating"
+                //     ? "bg-rose-300"
+                //     : "bg-indigo-300"
+                // }`}
+              >
+                <h3 className=" font-medium list-decimal">
+                  {id}.{question}
+                </h3>
+                <div className="flex gap-x-2 font-light font-base font-sans">
+                  {difficulty === 1 && (
+                    <>
+                      <StarIcon className="w-4 h-4 text-red-500" />
+                    </>
+                  )}
+                  {difficulty === 2 && (
+                    <>
+                      <StarIcon className="w-4 h-4 text-red-500" />
+                      <StarIcon className="w-4 h-4 -ml-2 text-red-500" />
+                    </>
+                  )}
+                  {difficulty === 3 && (
+                    <>
+                      <StarIcon className="w-4 h-4 text-red-500" />
+                      <StarIcon className="w-4 h-4 -ml-2 text-red-500" />
+                    </>
+                  )}
+                </div>
+                <ol className="list-decimal my-2 pl-8">
+                  {options.map((option) => (
+                    <li key={option} className="font-light py-0.5 ">
+                      <span
+                        className={`px-1 ${
+                          option === answer
+                            ? "border-green-500 border-b-2"
+                            : option === wrong_answer
+                            ? "border-red-500 border-b-2"
+                            : ""
+                        }`}
+                      >
+                        {option}
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+                        <div><img src={truelogo} className="w-28 mb-2" /></div>
+                <div className="relative ">
+                  {right[1] - right[0] > 0 ? (
+                    <ArrowUpIcon className="absolute bottom-6 right-6 w-6 h-6 text-green-700 object-right" />
+                  ) : right[1] - right[0] < 0 ? (
+                    <ArrowDownIcon className="absolute bottom-6 right-6 w-6 h-6 text-red-700 object-right" />
+                  ) : (
+                    ""
+                  )}
+
+                  <ProgressBar
+                    correct={right[0]}
+                    incorrect={wrong[0]}
+                    total={right[0] + wrong[0]}
+                  />
+                </div>
+              </div>
+            )
+          )}</div>):""}
+          {/* End Partners exam */}
+
+
+          {/* Student exam */}
+          {student1RangeValue > 0?(<div className=""><div className="font-semibold text-xl">Student Explorere</div>{student1FilteredData.map(
+            ({
+              id,
+              question,
+              options,
+              answer,
+              indicator,
+              // difficulty,
+              right,
+              wrong,
+              wrong_answer,
+            }) => (
+              <div
+                key={id}
+                className="shadow-md bg-white p-4 font-body font-medium sm:rounded-lg mb-4 border-4 border-sky-500 mt-2"
+                // className={`shadow-md p-4 font-body font-medium sm:rounded-lg item ${
+                //   indicator === "Remembering"
+                //     ? "bg-lime-200"
+                //     : indicator === "Understanding"
+                //     ? "bg-yellow-200"
+                //     : indicator === "Applying"
+                //     ? "bg-orange-200"
+                //     : indicator === "Analyzing"
+                //     ? "bg-sky-300"
+                //     : indicator === "Evaluating"
+                //     ? "bg-rose-300"
+                //     : "bg-indigo-300"
+                // }`}
+              >
+                <h3 className=" font-medium list-decimal">
+                  {id}.{question}
+                </h3>
+               <p className="font-sans font-light text-sm text-gray-500">บุคลิกภาพด้านสังคม(Introvert,Extrovert)</p>
+                <ol className="list-decimal my-2 pl-8">
+                  {options.map((option) => (
+                    <li key={option} className="font-light py-0.5 ">
+                      <span
+                        className={`px-1 ${
+                          option === answer
+                            ? "border-sky-500 border-b-2"
+                            : option === wrong_answer
+                            ? "border-blue-500 border-b-2"
+                            : ""
+                        }`}
+                      >
+                        {option}
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+                
+
+                  <ProgressBar2
+                    progress={right[0]}
+                    total={right[1]}
+                    progress_color="bg-sky-500"
+                    total_color="bg-orange-500"
+                  />
+              </div>
+            )
+          )}</div>):""}
+
+          
+          
           {/* ข้อสอบ */}
-          {data.map(
+          {dataValue.map(
             ({
               id,
               question,

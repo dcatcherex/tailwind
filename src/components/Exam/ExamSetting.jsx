@@ -8,7 +8,7 @@ const ExamSetting = () => {
   const timeselect = ["10 นาที", "30 นาที", "1 ชั่วโมง", "อื่น ๆ"];
 
   return (
-    <div className="px-4 py-2 text-lg max-w-[800px] mx-auto">
+    <div className="min-h-screen px-4 py-2 text-lg max-w-[800px] mx-auto">
       <div className=" gap-x-4 flex justify-between items-center border-b-2 border-gray-300 pb-3">
         <h1 className="text-left font-medium text-xl text-darkviolet">
           {examTitle} {gradeLevel} {academicYear}
