@@ -22,6 +22,11 @@ import aksornlogo from "../../assets/images/partners/aksorn.png";
 
 import { motion } from "framer-motion";
 
+const illustration = {
+  https://res.cloudinary.com/dc8gsxlxo/image/upload/f_auto,q_auto/v1/midjourney/x7evv3uazidv6d5kkbgl
+
+}
+
 const ExamList = () => {
   const [dataValue, setDataValue] = useState([]);
 
@@ -262,6 +267,7 @@ const ExamList = () => {
                     </>
                   )}
                 </div>
+                
                 <ol className="list-decimal my-2 pl-8">
                   {options.map((option) => (
                     <li key={option} className="font-light py-0.5 ">

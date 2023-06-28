@@ -20,8 +20,11 @@ import { BookOpenIcon } from "@heroicons/react/24/outline";
 import { WifiIcon } from "@heroicons/react/24/outline";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import { DocumentTextIcon } from "@heroicons/react/24/outline";
+import { PhotoIcon } from "@heroicons/react/24/outline";
 import truelogo from "../../assets/images/partners/true.png";
 import aksornlogo from "../../assets/images/partners/aksorn.png";
+
+import ImageGallery  from "../ImageGallery/ImageGallery";
 
 
 import { motion } from "framer-motion";
@@ -428,6 +431,9 @@ const ExamList = () => {
                       <StarIcon className="w-4 h-4 -ml-2 text-red-500" />
                     </>
                   )}
+                </div>
+                <div className="text-center">
+                  <ImageGallery />
                 </div>
                 <ol className="list-decimal my-2 pl-8">
                   {options.map((option) => (
