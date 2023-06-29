@@ -28,7 +28,7 @@ import { DocumentMagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import truelogo from "../../assets/images/partners/true.png";
 import aksornlogo from "../../assets/images/partners/aksorn.png";
 import careervisalogo from "../../assets/images/logos/careervisalogo.png";
-import depalogo from "../../assets/images/logos/depalogo.png";
+import depalogo from "../../assets/images/logos/depa.png";
 import edvlogo from "../../assets/images/logos/edvlogo.png";
 import newtonlogo from "../../assets/images/logos/newtonlogo.png";
 
