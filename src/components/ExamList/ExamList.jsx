@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { set, useForm } from "react-hook-form";
+import { Dialog, Transition } from "@headlessui/react";
+import { Fragment } from "react";
 
 import data from "../../assets/datas/samplequestions.json";
 import data2 from "../../assets/datas/samplequestions2.json";
@@ -21,18 +23,25 @@ import { WifiIcon } from "@heroicons/react/24/outline";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import { DocumentTextIcon } from "@heroicons/react/24/outline";
 import { PhotoIcon } from "@heroicons/react/24/outline";
+import { DocumentMagnifyingGlassIcon } from "@heroicons/react/24/outline";
+
 import truelogo from "../../assets/images/partners/true.png";
 import aksornlogo from "../../assets/images/partners/aksorn.png";
+import careervisalogo from "../../assets/images/logos/careervisalogo.png";
+import depalogo from "../../assets/images/logos/depalogo.png";
+import edvlogo from "../../assets/images/logos/edvlogo.png";
+import newtonlogo from "../../assets/images/logos/newtonlogo.png";
 
-import ImageGallery  from "../ImageGallery/ImageGallery";
-
+import ImageGallery from "../ImageGallery/ImageGallery";
 
 import { motion } from "framer-motion";
+import YoutubeVideo from "../YoutubeVideo/YoutubeVideo";
 
 const ExamList = () => {
   const [dataValue, setDataValue] = useState(data);
-  const [partnerDataValue, setPartnerDataValue] = useState(data2)
-  const [studentDataValue, setStudentDataValue] = useState(studentdata)
+  const [partnerDataValue, setPartnerDataValue] = useState(data2);
+  const [studentDataValue, setStudentDataValue] = useState(studentdata);
+  let [isOpen, setIsOpen] = useState(true);
 
   const [trueRangeValue, setTrueRangeValue] = useState(0);
   const [aksornRangeValue, setAksornRangeValue] = useState(0);
@@ -43,16 +52,23 @@ const ExamList = () => {
   const { register, handleSubmit } = useForm();
   const [show, setShow] = useState(false);
 
-  const minRange = "0"
-  const maxRange = "5"
-  const step = "1"
+  const minRange = "0";
+  const maxRange = "5";
+  const step = "1";
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
 
   const handleRangeChange = (e) => {
     setRangeValue(e.target.value);
   };
   const handleTrueRangeChange = (e) => {
     setTrueRangeValue(e.target.value);
-    
   };
   const handleAksornRangeChange = (e) => {
     setAksornRangeValue(e.target.value);
@@ -70,8 +86,8 @@ const ExamList = () => {
     setPrivate2RangeValue(e.target.value);
   };
 
-  const partnerFilteredData = partnerDataValue.slice(0,trueRangeValue)
-  const student1FilteredData = studentDataValue.slice(0,student1RangeValue)
+  const partnerFilteredData = partnerDataValue.slice(0, trueRangeValue);
+  const student1FilteredData = studentDataValue.slice(0, student1RangeValue);
 
   const rememberingTotal = dataValue.reduce((total, { indicator }) => {
     if (indicator === "Remembering") {
@@ -129,34 +145,34 @@ const ExamList = () => {
       case "partners":
         setTrueRangeValue(3); // Set specific value for Student Explorer or Private Library preset
         setAksornRangeValue(0); // Set specific value for Student Explorer or Private Library preset
-        setStudent1RangeValue(2)
-        setStudent2RangeValue(0)
-        setPrivate1RangeValue(0)
-        setPrivate2RangeValue(0)
+        setStudent1RangeValue(2);
+        setStudent2RangeValue(0);
+        setPrivate1RangeValue(0);
+        setPrivate2RangeValue(0);
         break;
-        case "students":
+      case "students":
         setTrueRangeValue(1); // Set specific value for Student Explorer or Private Library preset
         setAksornRangeValue(0); // Set specific value for Student Explorer or Private Library preset
-        setStudent1RangeValue(3)
-        setStudent2RangeValue(0)
-        setPrivate1RangeValue(0)
-        setPrivate2RangeValue(0)
+        setStudent1RangeValue(3);
+        setStudent2RangeValue(0);
+        setPrivate1RangeValue(0);
+        setPrivate2RangeValue(0);
         break;
-        case "private":
+      case "private":
         setTrueRangeValue(1); // Set specific value for Student Explorer or Private Library preset
         setAksornRangeValue(0); // Set specific value for Student Explorer or Private Library preset
-        setStudent1RangeValue(2)
-        setStudent2RangeValue(0)
-        setPrivate1RangeValue(2)
-        setPrivate2RangeValue(0)
+        setStudent1RangeValue(2);
+        setStudent2RangeValue(0);
+        setPrivate1RangeValue(2);
+        setPrivate2RangeValue(0);
         break;
       default:
         setTrueRangeValue(1); // Set specific value for Student Explorer or Private Library preset
         setAksornRangeValue(1); // Set specific value for Student Explorer or Private Library preset
-        setStudent1RangeValue(1)
-        setStudent2RangeValue(1)
-        setPrivate1RangeValue(1)
-        setPrivate2RangeValue(1)
+        setStudent1RangeValue(1);
+        setStudent2RangeValue(1);
+        setPrivate1RangeValue(1);
+        setPrivate2RangeValue(1);
     }
   };
 
@@ -203,19 +219,121 @@ const ExamList = () => {
         </Link>
       </div>
 
-        {/* recent */}
+      {/* recent */}
 
-        <div className="hidden sm:block max-w-[1400px] mx-auto  mb-4">
-          <div className="flex gap-4 items-center mx-4">
-            <h3>แบบทดสอบที่ใช้มา:</h3>
-            <button className="btn" onClick={()=>(setDataValue(data))}>แบบทดสอบที่ 1</button>
-            <button className="btn" onClick={()=>(setDataValue(data2))}>แบบทดสอบที่ 2</button>
-            <button className="btn" onClick={()=>(setDataValue(data3))}>แบบทดสอบที่ 3</button>
-          </div>
+      <div className="hidden sm:block max-w-[1400px] mx-auto  mb-4">
+        <div className="flex gap-4 items-center mx-4">
+          <h3>แบบทดสอบที่ใช้มา:</h3>
+          <button className="btn" onClick={() => setDataValue(data)}>
+            แบบทดสอบที่ 1
+          </button>
+          <button className="btn" onClick={() => setDataValue(data2)}>
+            แบบทดสอบที่ 2
+          </button>
+          <button className="btn" onClick={() => setDataValue(data3)}>
+            แบบทดสอบที่ 3
+          </button>
+          <button
+            className="flex items-center gap-x-2 btn cursor-pointer bg-dimviolet text-white "
+            onClick={openModal}
+          >
+            <DocumentMagnifyingGlassIcon className="h-5" />{" "}
+            <p>พรีวิวแบบทดสอบ</p>
+          </button>
+          <Transition appear show={isOpen} as={Fragment}>
+            <Dialog as="div" className="relative z-10" onClose={closeModal}>
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
+                <div className="fixed inset-0 bg-black bg-opacity-25" />
+              </Transition.Child>
+
+              <div className="fixed inset-0 overflow-y-auto">
+                <div className="flex min-h-full items-center justify-center p-4 text-center">
+                  <Transition.Child
+                    as={Fragment}
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0 scale-95"
+                    enterTo="opacity-100 scale-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100 scale-100"
+                    leaveTo="opacity-0 scale-95"
+                  >
+                    <Dialog.Panel className="w-full max-w-[800px] transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                      <div className=" flex items-center justify-between">
+                        <Dialog.Title
+                          as="h3"
+                          className="text-lg font-medium leading-6 text-gray-900"
+                        >
+                          พรีวิวแบบทดสอบ
+                        </Dialog.Title>
+                        <div className="">
+                          <button
+                            type="button"
+                            className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                            onClick={closeModal}
+                          >
+                            OK
+                          </button>
+                        </div>
+                      </div>
+                      {/* ข้อสอบ */}
+                      <div className="mt-4">
+                        <ExamHead />
+                      </div>
+                      <div className="grid grid-cols-2">
+                        {dataValue.map(
+                          ({
+                            id,
+                            question,
+                            options,
+                          }) => (
+                            <div
+                              key={id}
+                              className=" p-4 font-body font-medium sm:rounded-lg"
+                        
+                            >
+                              <h3 className=" font-medium list-decimal">
+                                {id}.{question}
+                              </h3>
+                              <div className="flex gap-x-2 font-light font-base font-sans">
+                        
+                              </div>
+                              <div className=" items-center">
+                        
+                              </div>
+                              <ol className="list-decimal my-2 pl-8">
+                                {options.map((option) => (
+                                  <li key={option} className="font-light py-0.5 ">
+                        
+                                      {option}
+                        
+                                  </li>
+                                ))}
+                              </ol>
+                        
+                            </div>
+                          )
+                        )}
+                      </div>
+
+                      
+                    </Dialog.Panel>
+                  </Transition.Child>
+                </div>
+              </div>
+            </Dialog>
+          </Transition>
         </div>
+      </div>
 
-       {/* List */}
-  
+      {/* List */}
 
       <div className="  max-w-[1400px] mx-auto flex">
         <motion.div
@@ -225,162 +343,180 @@ const ExamList = () => {
           variants={variants}
         >
           {/* Partners exam */}
-          {trueRangeValue > 0?(<div className=""><div className="font-semibold text-xl">Partner</div>
-          {partnerFilteredData.map(
-            ({
-              id,
-              question,
-              options,
-              answer,
-              indicator,
-              difficulty,
-              right,
-              wrong,
-              wrong_answer,
-            }) => (
-              <div
-                key={id}
-                className="shadow-md bg-white p-4 font-body font-medium sm:rounded-lg mb-4 mt-2"
-                // className={`shadow-md p-4 font-body font-medium sm:rounded-lg item ${
-                //   indicator === "Remembering"
-                //     ? "bg-lime-200"
-                //     : indicator === "Understanding"
-                //     ? "bg-yellow-200"
-                //     : indicator === "Applying"
-                //     ? "bg-orange-200"
-                //     : indicator === "Analyzing"
-                //     ? "bg-sky-300"
-                //     : indicator === "Evaluating"
-                //     ? "bg-rose-300"
-                //     : "bg-indigo-300"
-                // }`}
-              >
-                <h3 className=" font-medium list-decimal">
-                  {id}.{question}
-                </h3>
-                <div className="flex gap-x-2 font-light font-base font-sans">
-                  {difficulty === 1 && (
-                    <>
-                      <StarIcon className="w-4 h-4 text-red-500" />
-                    </>
-                  )}
-                  {difficulty === 2 && (
-                    <>
-                      <StarIcon className="w-4 h-4 text-red-500" />
-                      <StarIcon className="w-4 h-4 -ml-2 text-red-500" />
-                    </>
-                  )}
-                  {difficulty === 3 && (
-                    <>
-                      <StarIcon className="w-4 h-4 text-red-500" />
-                      <StarIcon className="w-4 h-4 -ml-2 text-red-500" />
-                    </>
-                  )}
-                </div>
-                <ol className="list-decimal my-2 pl-8">
-                  {options.map((option) => (
-                    <li key={option} className="font-light py-0.5 ">
-                      <span
-                        className={`px-1 ${
-                          option === answer
-                            ? "border-green-500 border-b-2"
-                            : option === wrong_answer
-                            ? "border-red-500 border-b-2"
-                            : ""
-                        }`}
-                      >
-                        {option}
-                      </span>
-                    </li>
-                  ))}
-                </ol>
-                        <div><img src={truelogo} className="w-28 mb-2" /></div>
-                <div className="relative ">
-                  {right[1] - right[0] > 0 ? (
-                    <ArrowUpIcon className="absolute bottom-6 right-6 w-6 h-6 text-green-700 object-right" />
-                  ) : right[1] - right[0] < 0 ? (
-                    <ArrowDownIcon className="absolute bottom-6 right-6 w-6 h-6 text-red-700 object-right" />
-                  ) : (
-                    ""
-                  )}
+          {trueRangeValue > 0 ? (
+            <div className="">
+              <div className="font-semibold text-xl">Partner</div>
+              {partnerFilteredData.map(
+                ({
+                  id,
+                  question,
+                  options,
+                  answer,
+                  indicator,
+                  difficulty,
+                  right,
+                  wrong,
+                  wrong_answer,
+                }) => (
+                  <div
+                    key={id}
+                    className="shadow-md bg-white p-4 font-body font-medium sm:rounded-lg mb-4 mt-2"
+                    // className={`shadow-md p-4 font-body font-medium sm:rounded-lg item ${
+                    //   indicator === "Remembering"
+                    //     ? "bg-lime-200"
+                    //     : indicator === "Understanding"
+                    //     ? "bg-yellow-200"
+                    //     : indicator === "Applying"
+                    //     ? "bg-orange-200"
+                    //     : indicator === "Analyzing"
+                    //     ? "bg-sky-300"
+                    //     : indicator === "Evaluating"
+                    //     ? "bg-rose-300"
+                    //     : "bg-indigo-300"
+                    // }`}
+                  >
+                    <h3 className=" font-medium list-decimal">
+                      {id}.{question}
+                    </h3>
+                    <div className="flex gap-x-2 font-light font-base font-sans">
+                      {difficulty === 1 && (
+                        <>
+                          <StarIcon className="w-4 h-4 text-red-500" />
+                        </>
+                      )}
+                      {difficulty === 2 && (
+                        <>
+                          <StarIcon className="w-4 h-4 text-red-500" />
+                          <StarIcon className="w-4 h-4 -ml-2 text-red-500" />
+                        </>
+                      )}
+                      {difficulty === 3 && (
+                        <>
+                          <StarIcon className="w-4 h-4 text-red-500" />
+                          <StarIcon className="w-4 h-4 -ml-2 text-red-500" />
+                        </>
+                      )}
+                    </div>
+                    <ol className="list-decimal my-2 pl-8">
+                      {options.map((option) => (
+                        <li key={option} className="font-light py-0.5 ">
+                          <span
+                            className={`px-1 ${
+                              option === answer
+                                ? "border-green-500 border-b-2"
+                                : option === wrong_answer
+                                ? "border-red-500 border-b-2"
+                                : ""
+                            }`}
+                          >
+                            {option}
+                          </span>
+                        </li>
+                      ))}
+                    </ol>
+                    <div>
+                      <div className="flex  gap-x-2">
+                        <img src={newtonlogo} className="w-10 mb-2" />
+                        <img src={edvlogo} className="w-14 mb-2" />
+                        <img src={depalogo} className="w-20 mb-2" />
+                        <img src={careervisalogo} className="w-14 mb-2" />
+                      </div>
+                    </div>
+                    <div className="relative ">
+                      {right[1] - right[0] > 0 ? (
+                        <ArrowUpIcon className="absolute bottom-6 right-6 w-6 h-6 text-green-700 object-right" />
+                      ) : right[1] - right[0] < 0 ? (
+                        <ArrowDownIcon className="absolute bottom-6 right-6 w-6 h-6 text-red-700 object-right" />
+                      ) : (
+                        ""
+                      )}
 
-                  <ProgressBar
-                    correct={right[0]}
-                    incorrect={wrong[0]}
-                    total={right[0] + wrong[0]}
-                  />
-                </div>
-              </div>
-            )
-          )}</div>):""}
+                      <ProgressBar
+                        correct={right[0]}
+                        incorrect={wrong[0]}
+                        total={right[0] + wrong[0]}
+                      />
+                    </div>
+                  </div>
+                )
+              )}
+            </div>
+          ) : (
+            ""
+          )}
           {/* End Partners exam */}
 
-
           {/* Student exam */}
-          {student1RangeValue > 0?(<div className=""><div className="font-semibold text-xl">Student Explorere</div>{student1FilteredData.map(
-            ({
-              id,
-              question,
-              options,
-              answer,
-              indicator,
-              // difficulty,
-              right,
-              wrong,
-              wrong_answer,
-            }) => (
-              <div
-                key={id}
-                className="shadow-md bg-white p-4 font-body font-medium sm:rounded-lg mb-4 border-4 border-sky-500 mt-2"
-                // className={`shadow-md p-4 font-body font-medium sm:rounded-lg item ${
-                //   indicator === "Remembering"
-                //     ? "bg-lime-200"
-                //     : indicator === "Understanding"
-                //     ? "bg-yellow-200"
-                //     : indicator === "Applying"
-                //     ? "bg-orange-200"
-                //     : indicator === "Analyzing"
-                //     ? "bg-sky-300"
-                //     : indicator === "Evaluating"
-                //     ? "bg-rose-300"
-                //     : "bg-indigo-300"
-                // }`}
-              >
-                <h3 className=" font-medium list-decimal">
-                  {id}.{question}
-                </h3>
-               <p className="font-sans font-light text-sm text-gray-500">บุคลิกภาพด้านสังคม(Introvert,Extrovert)</p>
-                <ol className="list-decimal my-2 pl-8">
-                  {options.map((option) => (
-                    <li key={option} className="font-light py-0.5 ">
-                      <span
-                        className={`px-1 ${
-                          option === answer
-                            ? "border-sky-500 border-b-2"
-                            : option === wrong_answer
-                            ? "border-blue-500 border-b-2"
-                            : ""
-                        }`}
-                      >
-                        {option}
-                      </span>
-                    </li>
-                  ))}
-                </ol>
-                
+          {student1RangeValue > 0 ? (
+            <div className="">
+              <div className="font-semibold text-xl">Student Explorere</div>
+              {student1FilteredData.map(
+                ({
+                  id,
+                  question,
+                  options,
+                  answer,
+                  indicator,
+                  // difficulty,
+                  right,
+                  wrong,
+                  wrong_answer,
+                }) => (
+                  <div
+                    key={id}
+                    className="shadow-md bg-white p-4 font-body font-medium sm:rounded-lg mb-4 border-4 border-sky-500 mt-2"
+                    // className={`shadow-md p-4 font-body font-medium sm:rounded-lg item ${
+                    //   indicator === "Remembering"
+                    //     ? "bg-lime-200"
+                    //     : indicator === "Understanding"
+                    //     ? "bg-yellow-200"
+                    //     : indicator === "Applying"
+                    //     ? "bg-orange-200"
+                    //     : indicator === "Analyzing"
+                    //     ? "bg-sky-300"
+                    //     : indicator === "Evaluating"
+                    //     ? "bg-rose-300"
+                    //     : "bg-indigo-300"
+                    // }`}
+                  >
+                    <h3 className=" font-medium list-decimal">
+                      {id}.{question}
+                    </h3>
+                    <p className="font-sans font-light text-sm text-gray-500">
+                      บุคลิกภาพด้านสังคม(Introvert,Extrovert)
+                    </p>
+                    <ol className="list-decimal my-2 pl-8">
+                      {options.map((option) => (
+                        <li key={option} className="font-light py-0.5 ">
+                          <span
+                            className={`px-1 ${
+                              option === answer
+                                ? "border-sky-500 border-b-2"
+                                : option === wrong_answer
+                                ? "border-blue-500 border-b-2"
+                                : ""
+                            }`}
+                          >
+                            {option}
+                          </span>
+                        </li>
+                      ))}
+                    </ol>
 
-                  <ProgressBar2
-                    progress={right[0]}
-                    total={right[1]}
-                    progress_color="bg-sky-500"
-                    total_color="bg-orange-500"
-                  />
-              </div>
-            )
-          )}</div>):""}
+                    <ProgressBar2
+                      progress={right[0]}
+                      total={right[1]}
+                      progress_color="bg-sky-500"
+                      total_color="bg-orange-500"
+                    />
+                  </div>
+                )
+              )}
+            </div>
+          ) : (
+            ""
+          )}
 
-          
-          
           {/* ข้อสอบ */}
           {dataValue.map(
             ({
@@ -432,8 +568,9 @@ const ExamList = () => {
                     </>
                   )}
                 </div>
-                <div className="text-center">
+                <div className=" items-center">
                   <ImageGallery />
+                  <YoutubeVideo />
                 </div>
                 <ol className="list-decimal my-2 pl-8">
                   {options.map((option) => (
@@ -474,7 +611,9 @@ const ExamList = () => {
         {/* control */}
         <div className="hidden sm:block m-4 p-4 min-w-[30%] border-2 rounded-lg border-dimviolet justify-items-start">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-semibold text-darkviolet">Exam Mixer</h2>
+            <h2 className="text-2xl font-semibold text-darkviolet">
+              Exam Mixer
+            </h2>
             <div className="hover:bg-dimviolet hover:text-white hover:cursor-pointer p-2 rounded-md border-2 border-gray-300">
               <ArrowDownTrayIcon className="w-6 h-6" />
             </div>
@@ -482,7 +621,7 @@ const ExamList = () => {
           <div className="border-b-2 border-gray-300 w-full my-2"></div>
           <div className="flex flex-col">
             <div>
-            <div className="w-full mb-3">
+              <div className="w-full mb-3">
                 <label htmlFor="preset">Preset:</label>
                 <select
                   {...register("preset")}
@@ -502,7 +641,8 @@ const ExamList = () => {
               <div className="flex flex-col gap-y-2">
                 <div className="min-h-[60px] flex items-center gap-x-2 bg-white rounded-md p-2 hover:ring-2 ring-dimviolet cursor-pointer">
                   {/* <input type="checkbox" className="rounded-md w-5 h-5" /> */}
-                  <img src={truelogo} className="w-28	" />
+                  {/* <img src={truelogo} className="w-28	" /> */}
+                  <p>องค์กร สถาบัน</p>
                   <input
                     type="range"
                     className="w-full rounded-sm w-5 h-5"
@@ -561,7 +701,10 @@ const ExamList = () => {
               <div className="flex flex-col gap-y-2">
                 <div className="min-h-[60px] flex items-center gap-x-2 bg-white rounded-md p-2 hover:ring-2 ring-dimviolet cursor-pointer">
                   {/* <input type="checkbox" className="rounded-md w-5 h-5" /> */}
-                  <p className="w-[300px] inline-flex items-center"><DocumentTextIcon className="w-8 h-8 mr-2 text-gray-500"/>แบบทดสอบบุคลิกภาพ</p>
+                  <p className="w-[300px] inline-flex items-center">
+                    <DocumentTextIcon className="w-8 h-8 mr-2 text-gray-500" />
+                    แบบทดสอบบุคลิกภาพ
+                  </p>
                   <input
                     type="range"
                     className="w-full rounded-sm w-5 h-5"
@@ -582,14 +725,21 @@ const ExamList = () => {
                       </p>
                     )}
                   </div>
-                  
                 </div>
                 <div className="mb-2">
-                  <ProgressBar2 progress ={3} total={5} progress_color="bg-sky-500" />
+                  <ProgressBar2
+                    progress={3}
+                    total={5}
+                    progress_color="bg-sky-500"
+                  />
                 </div>
+
                 <div className="min-h-[60px] flex items-center gap-x-2 bg-white rounded-md p-2 hover:ring-2 ring-dimviolet cursor-pointer">
                   {/* <input type="checkbox" className="rounded-md w-5 h-5" /> */}
-                  <p className="w-[300px] inline-flex items-center"><DocumentTextIcon className="w-10 h-10 mr-2 text-gray-500"/>แบบทดสอบความถนัดทางอาชีพ</p>
+                  <p className="w-[300px] inline-flex items-center">
+                    <DocumentTextIcon className="w-10 h-10 mr-2 text-gray-500" />
+                    แบบทดสอบเทคโนโลยีปัจจุบัน
+                  </p>
                   <input
                     type="range"
                     className="w-full rounded-sm w-5 h-5"
@@ -610,10 +760,47 @@ const ExamList = () => {
                       </p>
                     )}
                   </div>
-                  
                 </div>
                 <div className="mb-2">
-                  <ProgressBar2 progress ={2} total={5} progress_color="bg-sky-500" />
+                  <ProgressBar2
+                    progress={2}
+                    total={5}
+                    progress_color="bg-sky-500"
+                  />
+                </div>
+                <div className="min-h-[60px] flex items-center gap-x-2 bg-white rounded-md p-2 hover:ring-2 ring-dimviolet cursor-pointer">
+                  {/* <input type="checkbox" className="rounded-md w-5 h-5" /> */}
+                  <p className="w-[300px] inline-flex items-center">
+                    <DocumentTextIcon className="w-10 h-10 mr-2 text-gray-500" />
+                    แบบทดสอบการระวังภัยไซเบอร์
+                  </p>
+                  <input
+                    type="range"
+                    className="w-full rounded-sm w-5 h-5"
+                    min="0"
+                    max={maxRange}
+                    step="1"
+                    value={student2RangeValue}
+                    onChange={handleStudent2RangeChange}
+                  />
+                  <div className="">
+                    {student2RangeValue > 0 ? (
+                      <p className=" ml-2 mr-2 text-lg text-right w-2 font-semibold text-darkviolet">
+                        {student2RangeValue}
+                      </p>
+                    ) : (
+                      <p className="  text-darkviolet font-semibold text-lg  ">
+                        Auto
+                      </p>
+                    )}
+                  </div>
+                </div>
+                <div className="mb-2">
+                  <ProgressBar2
+                    progress={2}
+                    total={5}
+                    progress_color="bg-sky-500"
+                  />
                 </div>
 
                 <div className="min-h-[60px] flex items-center gap-x-2 border-2 border-gray-300 border-dashed  rounded-md p-2 hover:ring-2 ring-dimviolet cursor-pointer text-gray-600">
@@ -628,7 +815,7 @@ const ExamList = () => {
               <div className="flex flex-col gap-y-2">
                 <div className="min-h-[60px] flex items-center gap-x-2 bg-white rounded-md p-2 hover:ring-2 ring-dimviolet cursor-pointer">
                   {/* <input type="checkbox" className="rounded-md w-5 h-5" /> */}
-                  <DocumentTextIcon className="w-8 h-8 text-gray-500"/>
+                  <DocumentTextIcon className="w-8 h-8 text-gray-500" />
                   เอกสาร
                   <input
                     type="range"
@@ -653,7 +840,7 @@ const ExamList = () => {
                 </div>
                 <div className="min-h-[60px] flex items-center gap-x-2 bg-white rounded-md p-2 hover:ring-2 ring-dimviolet cursor-pointer">
                   {/* <input type="checkbox" className="rounded-md w-5 h-5" /> */}
-                  <DocumentTextIcon className="w-8 h-8 text-gray-500"/>
+                  <DocumentTextIcon className="w-8 h-8 text-gray-500" />
                   เอกสาร
                   <input
                     type="range"
@@ -683,11 +870,7 @@ const ExamList = () => {
                 </div>
               </div>
             </div>
-            <div>
-              
-
-              
-            </div>
+            <div></div>
           </div>
         </div>
       </div>
